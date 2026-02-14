@@ -3,320 +3,375 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>梦幻粒子跳动爱心</title>
+    <title>单招咨询系统 - 登录注册</title>
+    <link rel="stylesheet" type="text/css" href="common.css">
+    <link rel="stylesheet" type="text/css" href="shuiyin.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* 登录注册区域样式 */
+        .auth-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
         }
-        
-        body {
+
+        .auth-tabs {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            overflow: hidden;
-            font-family: 'Arial', sans-serif;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
         }
-        
-        .container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
+
+        .auth-tab {
+            flex: 1;
             text-align: center;
-            z-index: 10;
-        }
-        
-        h1 {
-            color: #fff;
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
-            letter-spacing: 2px;
-        }
-        
-        .subtitle {
-            color: #ffb6c1;
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-        
-        canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-        
-        .controls {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 15px;
-            z-index: 20;
-        }
-        
-        button {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 182, 193, 0.5);
-            color: #ffb6c1;
-            padding: 10px 20px;
-            border-radius: 30px;
+            padding: 10px 0;
+            font-size: 18px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1rem;
+            color: #666;
+            transition: all 0.3s;
         }
-        
-        button:hover {
-            background: rgba(255, 105, 180, 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+
+        .auth-tab.active {
+            color: #2c5282;
+            border-bottom: 2px solid #2c5282;
+            font-weight: bold;
         }
-        
-        .heart-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 24px;
-            color: rgba(255, 255, 255, 0.7);
-            animation: pulse 2s infinite;
-            z-index: 5;
+
+        .auth-form {
+            display: none;
         }
-        
-        @keyframes pulse {
-            0% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.8); }
-            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
-            100% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.8); }
+
+        .auth-form.active {
+            display: block;
         }
-        
-        .footer {
-            position: fixed;
-            bottom: 10px;
-            right: 20px;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-            z-index: 20;
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #2c5282;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #2c5282;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #1e3a5f;
+        }
+
+        .error-tip {
+            color: #ff4d4f;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* 新增提示框样式（复用shouye的alert逻辑，不影响原有样式） */
+        .alert {
+            margin-top: 15px;
+            padding: 12px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            display: none;
+        }
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+        .alert-success {
+            color: #155724;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .auth-container {
+                margin: 30px auto;
+                padding: 20px;
+            }
         }
     </style>
+    <!-- 引入Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.38.4/dist/umd/supabase.min.js"></script>
 </head>
 <body>
-    <canvas id="particleCanvas"></canvas>
-    
-    <div class="container">
-        <h1>梦幻粒子爱心</h1>
-        <p class="subtitle">粒子在跳动的心形轨迹上舞动，编织爱的梦幻</p>
-        <div class="heart-icon">❤️</div>
-    </div>
-    
-    <div class="controls">
-        <button id="speedUp">加速</button>
-        <button id="speedDown">减速</button>
-        <button id="addParticles">增加粒子</button>
-        <button id="changeColor">切换颜色</button>
-    </div>
-    
-    <div class="footer">梦幻粒子效果 | HTML5 Canvas实现</div>
+<div class="watermark"></div>
+   <!-- 导航栏 -->
+    <header>
+        <div class="container nav">
+            <div class="logo">河南铭书教育单招咨询</div>
+            <ul class="nav-menu">
+                <li><a href="shouye.html">首<br/>页</a></li>
+                <li><a href="yuanxiao.html">河南单招<br/>院校大全</a></li>
+                <li><a href="zhuanye.html">根据专业<br/>选院校</a></li>
+                <li><a href="chengji.html">根据成绩<br/>选院校</a></li>
+                <li><a href="us.html">关于<br/>我们</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 登录注册核心区域 -->
+    <section class="container">
+        <div class="auth-container">
+            <!-- 切换标签 -->
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-tab="login">登录</div>
+                <div class="auth-tab" data-tab="register">注册</div>
+            </div>
+
+            <!-- 登录表单 -->
+            <form class="auth-form active" id="loginForm">
+                <div class="form-group">
+                    <label for="loginName">姓名</label>
+                    <input type="text" id="loginName" placeholder="请输入您的姓名" required>
+                    <div class="error-tip" id="loginNameError">姓名不能为空</div>
+                </div>
+                <div class="form-group">
+                    <label for="loginPhone">手机号码</label>
+                    <input type="tel" id="loginPhone" placeholder="请输入您的手机号码" required>
+                    <div class="error-tip" id="loginPhoneError">请输入正确的手机号码</div>
+                </div>
+                <button type="submit" class="submit-btn">登录</button>
+                <!-- 新增登录提示框 -->
+                <div id="loginAlert" class="alert"></div>
+            </form>
+
+            <!-- 注册表单 -->
+            <form class="auth-form" id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">姓名</label>
+                    <input type="text" id="registerName" placeholder="请输入您的姓名" required>
+                    <div class="error-tip" id="registerNameError">姓名不能为空</div>
+                </div>
+                <div class="form-group">
+                    <label for="registerPhone">手机号码</label>
+                    <input type="tel" id="registerPhone" placeholder="请输入您的手机号码" required>
+                    <div class="error-tip" id="registerPhoneError">请输入正确的手机号码</div>
+                </div>
+                <button type="submit" class="submit-btn">注册</button>
+                <!-- 新增注册提示框 -->
+                <div id="registerAlert" class="alert"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- 页脚（复用原有样式） -->
+    <footer>
+        <div class="container footer-info">
+            <p>单招咨询系统 河南铭书教育专用网站 | 详细咨询：姜老师 17744639665 | 地址：河南省郑州市中牟县青年西路34号大学生众创中心（农校东侧）</p>
+            <p style="margin-top: 10px; font-size: 12px;">本系统仅提供咨询服务，最终政策以教育考试院公布为准</p>
+        </div>
+    </footer>
 
     <script>
-        // 获取Canvas元素和上下文
-        const canvas = document.getElementById('particleCanvas');
-        const ctx = canvas.getContext('2d');
-        
-        // 设置Canvas尺寸为窗口大小
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        
-        // 粒子数组
-        let particles = [];
-        // 爱心参数
-        const heartSize = 15;
-        // 动画速度
-        let animationSpeed = 0.02;
-        // 粒子颜色主题
-        let colorTheme = 0;
-        const themes = [
-            { start: '#FF1493', end: '#FF69B4' }, // 粉红色
-            { start: '#FF4500', end: '#FF6347' }, // 橙红色
-            { start: '#9370DB', end: '#BA55D3' }, // 紫色
-            { start: '#00BFFF', end: '#87CEFA' }  // 蓝色
-        ];
-        
-        // 粒子类
-        class Particle {
-            constructor(x, y, size, color) {
-                this.x = x;
-                this.y = y;
-                this.originalX = x;
-                this.originalY = y;
-                this.size = size;
-                this.color = color;
-                this.speed = Math.random() * 0.5 + 0.5;
-                this.angle = Math.random() * Math.PI * 2;
-                this.distance = Math.random() * 20 + 5;
-                this.trail = [];
-                this.maxTrailLength = 5;
+        // 页面加载时检查登录状态
+        document.addEventListener('DOMContentLoaded', function() {
+            // 如果用户已登录，直接跳转到首页
+            if (localStorage.getItem('userLoginStatus') === 'true') {
+                window.location.href = 'shouye.html';
             }
-            
-            update(time) {
-                // 心跳效果
-                const beat = Math.sin(time * 0.01) * 0.2 + 1;
-                
-                // 粒子在爱心上的位置
-                this.angle += this.speed * animationSpeed;
-                const t = this.angle;
-                
-                // 爱心参数方程
-                this.x = 16 * Math.pow(Math.sin(t), 3);
-                this.y = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
-                
-                // 缩放和定位
-                this.x = this.x * heartSize * beat + canvas.width / 2;
-                this.y = this.y * heartSize * beat + canvas.height / 2;
-                
-                // 添加轨迹点
-                this.trail.push({x: this.x, y: this.y});
-                if (this.trail.length > this.maxTrailLength) {
-                    this.trail.shift();
-                }
-            }
-            
-            draw() {
-                // 绘制轨迹
-                for (let i = 0; i < this.trail.length; i++) {
-                    const point = this.trail[i];
-                    const alpha = i / this.trail.length;
-                    const size = this.size * alpha;
-                    
-                    ctx.beginPath();
-                    ctx.arc(point.x, point.y, size, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(${this.color}, ${alpha * 0.6})`;
-                    ctx.fill();
-                }
-                
-                // 绘制粒子
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(${this.color}, 1)`;
-                ctx.fill();
-                
-                // 添加发光效果
-                ctx.shadowColor = `rgba(${this.color}, 0.8)`;
-                ctx.shadowBlur = 15;
-                ctx.fill();
-                ctx.shadowBlur = 0;
-            }
-        }
-        
-        // 初始化粒子
-        function initParticles(count) {
-            particles = [];
-            const currentTheme = themes[colorTheme];
-            const startRgb = hexToRgb(currentTheme.start);
-            const endRgb = hexToRgb(currentTheme.end);
-            
-            for (let i = 0; i < count; i++) {
-                // 在爱心上均匀分布粒子
-                const angle = (i / count) * Math.PI * 2;
-                const t = angle;
-                
-                // 爱心参数方程
-                const x = 16 * Math.pow(Math.sin(t), 3);
-                const y = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
-                
-                // 缩放和定位
-                const posX = x * heartSize + canvas.width / 2;
-                const posY = y * heartSize + canvas.height / 2;
-                
-                // 颜色插值
-                const ratio = Math.random();
-                const r = Math.floor(startRgb.r + (endRgb.r - startRgb.r) * ratio);
-                const g = Math.floor(startRgb.g + (endRgb.g - startRgb.g) * ratio);
-                const b = Math.floor(startRgb.b + (endRgb.b - startRgb.b) * ratio);
-                
-                const size = Math.random() * 2 + 1;
-                particles.push(new Particle(posX, posY, size, `${r}, ${g}, ${b}`));
-            }
-        }
-        
-        // 将十六进制颜色转换为RGB
-        function hexToRgb(hex) {
-            const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-            return result ? {
-                r: parseInt(result[1], 16),
-                g: parseInt(result[2], 16),
-                b: parseInt(result[3], 16)
-            } : {r: 255, g: 20, b: 147}; // 默认粉红色
-        }
-        
-        // 动画循环
-        let time = 0;
-        function animate() {
-            // 使用半透明背景创建拖尾效果
-            ctx.fillStyle = 'rgba(10, 8, 30, 0.1)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            // 更新和绘制所有粒子
-            particles.forEach(particle => {
-                particle.update(time);
-                particle.draw();
+        });
+
+        // 初始化 Supabase
+        const SUPABASE_URL = 'https://lslgursmabhdnpegnetp.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxzbGd1cnNtYWJoZG5wZWduZXRwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAyNTc2NzAsImV4cCI6MjA4NTgzMzY3MH0.yZZsh87v5-xSzbduy1qJQP1jinfriJ07L5TLhnXh8jc';
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+            global: { fetch: (url, options = {}) => { options.credentials = 'omit'; return fetch(url, options); } }
+        });
+
+        // 标签切换逻辑
+        const authTabs = document.querySelectorAll('.auth-tab');
+        const authForms = document.querySelectorAll('.auth-form');
+
+        authTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // 移除所有active类
+                authTabs.forEach(t => t.classList.remove('active'));
+                authForms.forEach(f => f.classList.remove('active'));
+
+                // 给当前标签和对应表单添加active类
+                tab.classList.add('active');
+                const targetTab = tab.getAttribute('data-tab');
+                document.querySelector(`#${targetTab}Form`).classList.add('active');
             });
-            
-            time++;
-            requestAnimationFrame(animate);
+        });
+
+        // 手机号码验证规则
+        function isValidPhone(phone) {
+            const reg = /^1[3-9]\d{9}$/;
+            return reg.test(phone);
         }
-        
-        // 响应窗口大小变化
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            initParticles(200);
-        });
-        
-        // 按钮事件
-        document.getElementById('speedUp').addEventListener('click', () => {
-            animationSpeed = Math.min(animationSpeed + 0.005, 0.1);
-        });
-        
-        document.getElementById('speedDown').addEventListener('click', () => {
-            animationSpeed = Math.max(animationSpeed - 0.005, 0.005);
-        });
-        
-        document.getElementById('addParticles').addEventListener('click', () => {
-            const newCount = Math.min(particles.length + 50, 500);
-            initParticles(newCount);
-        });
-        
-        document.getElementById('changeColor').addEventListener('click', () => {
-            colorTheme = (colorTheme + 1) % themes.length;
-            initParticles(particles.length);
-        });
-        
-        // 添加一些随机星星背景
-        function addStars() {
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-            for (let i = 0; i < 100; i++) {
-                const x = Math.random() * canvas.width;
-                const y = Math.random() * canvas.height;
-                const radius = Math.random() * 1.5;
-                ctx.beginPath();
-                ctx.arc(x, y, radius, 0, Math.PI * 2);
-                ctx.fill();
+
+        // 登录表单提交
+        const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('loginName').value.trim();
+            const phone = document.getElementById('loginPhone').value.trim();
+            const loginAlert = document.getElementById('loginAlert');
+            let isValid = true;
+
+            // 前端验证
+            if (!name) {
+                document.getElementById('loginNameError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('loginNameError').style.display = 'none';
             }
-        }
-        
-        // 初始化并开始动画
-        initParticles(200);
-        addStars();
-        animate();
+            if (!isValidPhone(phone)) {
+                document.getElementById('loginPhoneError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('loginPhoneError').style.display = 'none';
+            }
+
+            if (!isValid) return;
+
+            try {
+                // 调用Supabase查询用户
+                const { data, error } = await supabase.from('user_info')
+                    .select('*')
+                    .eq('phone', phone)
+                    .eq('name', name)
+                    .single();
+
+                if (error) {
+                    loginAlert.className = 'alert alert-danger';
+                    loginAlert.textContent = error.code === 'PGRST116' ? '姓名或手机号错误' : `登录失败：${error.message}`;
+                    loginAlert.style.display = 'block';
+                    return;
+                }
+
+                // 登录成功
+                localStorage.setItem('userLoginStatus', 'true');
+                localStorage.setItem('userName', data.name);
+                loginAlert.className = 'alert alert-success';
+                loginAlert.textContent = `登录成功！欢迎 ${data.name}，即将跳转到单招咨询页面...`;
+                loginAlert.style.display = 'block';
+
+                // 重置表单并跳转
+                loginForm.reset();
+                setTimeout(() => { window.location.href = 'shouye.html'; }, 1500);
+
+            } catch (err) {
+                loginAlert.className = 'alert alert-danger';
+                loginAlert.textContent = `网络错误：${err.message}`;
+                loginAlert.style.display = 'block';
+            }
+        });
+
+        // 注册表单提交
+        const registerForm = document.getElementById('registerForm');
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('registerName').value.trim();
+            const phone = document.getElementById('registerPhone').value.trim();
+            const registerAlert = document.getElementById('registerAlert');
+            let isValid = true;
+
+            // 前端验证
+            if (!name) {
+                document.getElementById('registerNameError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('registerNameError').style.display = 'none';
+            }
+            if (!isValidPhone(phone)) {
+                document.getElementById('registerPhoneError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('registerPhoneError').style.display = 'none';
+            }
+
+            if (!isValid) return;
+
+            try {
+                // 调用Supabase插入用户
+                const { data, error } = await supabase.from('user_info')
+                    .insert([{ name, phone }])
+                    .select();
+
+                if (error) {
+                    registerAlert.className = 'alert alert-danger';
+                    registerAlert.textContent = error.message.includes('unique constraint') ? '该手机号已注册' : `注册失败：${error.message}`;
+                    registerAlert.style.display = 'block';
+                    return;
+                }
+
+                // 注册成功
+                localStorage.setItem('userLoginStatus', 'true');
+                localStorage.setItem('userName', name);
+                registerAlert.className = 'alert alert-success';
+                registerAlert.textContent = '注册成功！即将跳转到单招咨询页面...';
+                registerAlert.style.display = 'block';
+
+                // 重置表单并跳转
+                registerForm.reset();
+                setTimeout(() => { window.location.href = 'shouye.html'; }, 1500);
+
+            } catch (err) {
+                registerAlert.className = 'alert alert-danger';
+                registerAlert.textContent = `网络错误：${err.message}`;
+                registerAlert.style.display = 'block';
+            }
+        });
+
+        // 输入框实时验证
+        const phoneInputs = [document.getElementById('loginPhone'), document.getElementById('registerPhone')];
+        const nameInputs = [document.getElementById('loginName'), document.getElementById('registerName')];
+
+        nameInputs.forEach(input => {
+            input.addEventListener('blur', () => {
+                const errorEl = document.getElementById(`${input.id}Error`);
+                if (!input.value.trim()) {
+                    errorEl.style.display = 'block';
+                } else {
+                    errorEl.style.display = 'none';
+                }
+            });
+        });
+
+        phoneInputs.forEach(input => {
+            input.addEventListener('blur', () => {
+                const errorEl = document.getElementById(`${input.id}Error`);
+                if (!isValidPhone(input.value.trim())) {
+                    errorEl.style.display = 'block';
+                } else {
+                    errorEl.style.display = 'none';
+                }
+            });
+        });
     </script>
 </body>
 </html>
