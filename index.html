@@ -204,8 +204,8 @@
         });
 
         // 初始化 Supabase
-        const SUPABASE_URL = 'https://lslgursmabhdnpegnetp.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxzbGd1cnNtYWJoZG5wZWduZXRwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAyNTc2NzAsImV4cCI6MjA4NTgzMzY3MH0.yZZsh87v5-xSzbduy1qJQP1jinfriJ07L5TLhnXh8jc';
+        const SUPABASE_URL = 'https://obmcgsfazphdteydgyak.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9ibWNnc2ZhenBoZHRleWRneWFrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAyNDM4MDUsImV4cCI6MjA4NTgxOTgwNX0.9p93bsDBy_7bnegPUOQqzq0EgwMuKTaL8qoyFx6Oaww';
         const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
             global: { fetch: (url, options = {}) => { options.credentials = 'omit'; return fetch(url, options); } }
         });
