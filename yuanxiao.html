@@ -197,13 +197,12 @@
     </footer>
 
     <script>
-        // 院校数据（从yx.xlsx提取，并添加了示例所在地）
-        const schools = [
+const schools = [
             { id: 1, name: "河南地矿职业学院", location: "郑州" },
             { id: 2, name: "河南职业技术学院", location: "郑州" },
             { id: 3, name: "郑州工业安全职业学院", location: "郑州" },
             { id: 4, name: "周口职业技术学院", location: "周口" },
-            { id: 5, name: "漯漯河职业技术学院", location: "漯漯漯漯河" },
+            { id: 5, name: "漯河职业技术学院", location: "漯河" },
             { id: 6, name: "三门峡职业技术学院", location: "三门峡" },
             { id: 7, name: "郑州铁路职业技术学院", location: "郑州" },
             { id: 8, name: "开封大学", location: "开封" },
@@ -260,7 +259,7 @@
             { id: 59, name: "鹤壁职业技术学院", location: "鹤壁" },
             { id: 60, name: "郑州科技学院", location: "郑州" },
             { id: 61, name: "郑州工业应用技术学院", location: "郑州" },
-            { id: 62, name: "郑州健康学院（原郑州澍澍澍澍澍澍澍澍青医学高等专科学校）", location: "郑州" },
+            { id: 62, name: "郑州健康学院（原郑州澍青医学高等专科学校）", location: "郑州" },
             { id: 63, name: "黄河交通学院", location: "焦作" },
             { id: 64, name: "商丘工学院", location: "商丘" },
             { id: 65, name: "安阳学院", location: "安阳" },
@@ -292,7 +291,19 @@
             { id: 91, name: "平顶山文化艺术职业学院", location: "平顶山" },
             { id: 92, name: "濮阳科技职业学院", location: "濮阳" },
             { id: 93, name: "周口理工职业学院", location: "周口" },
-            { id: 94, name: "洛阳商业职业学院", location: "洛阳" }
+            { id: 94, name: "洛阳商业职业学院", location: "洛阳" },
+            { id: 95, name: "河南新乡工商职业学院", location: "新乡" },
+            { id: 96, name: "开封职业学院", location: "开封" },
+            { id: 97, name: "信阳科技职业学院", location: "信阳" },
+            { id: 98, name: "信阳工程职业学院", location: "信阳" },
+            { id: 99, name: "郑州电力职业技术学院", location: "郑州" },
+            { id: 100, name: "郑州汽车工程职业学院", location: "郑州" },
+            { id: 101, name: "郑州软件职业技术学院", location: "郑州" },
+            { id: 102, name: "郑州食品工程职业学院", location: "郑州" },
+            { id: 103, name: "郑州信息工程职业学院", location: "郑州" },
+            { id: 104, name: "郑州智能科技职业学院", location: "郑州" },
+            { id: 105, name: "周口城市职业学院", location: "周口" },
+            { id: 106, name: "商丘学院", location: "商丘" }
         ];
 
         // 获取元素
@@ -337,7 +348,7 @@
             return text.replace(regex, '<span class="highlight">$1</span>');
         }
 
-        // 搜索函数
+                // 搜索函数
         function searchTable() {
             const schoolKeyword = schoolSearchInput.value.trim().toLowerCase();
             const locationKeyword = locationSearchInput.value.trim().toLowerCase();
@@ -358,12 +369,18 @@
 
                 if (isSchoolMatch && isLocationMatch) {
                     hasResult = true;
-                    // 高亮关键词
-                    if (schoolKeyword) {
-                        row.querySelector('td:nth-child(2) a').innerHTML = highlightText(originalSchoolName, schoolKeyword);
-                    }
-                    if (locationKeyword) {
-                        row.querySelector('td:first-child').innerHTML = highlightText(originalLocationName, locationKeyword);
+                    // 当两个搜索框都为空时，清除所有高亮并显示原始文本
+                    if (!schoolKeyword && !locationKeyword) {
+                        row.querySelector('td:nth-child(2) a').textContent = originalSchoolName;
+                        row.querySelector('td:first-child').textContent = originalLocationName;
+                    } else {
+                        // 高亮关键词
+                        if (schoolKeyword) {
+                            row.querySelector('td:nth-child(2) a').innerHTML = highlightText(originalSchoolName, schoolKeyword);
+                        }
+                        if (locationKeyword) {
+                            row.querySelector('td:first-child').innerHTML = highlightText(originalLocationName, locationKeyword);
+                        }
                     }
                     row.style.display = '';
                 } else {
