@@ -216,7 +216,6 @@
 <body>
 <div class="watermark"></div>
     <!-- 导航栏 -->
-    <!-- 导航栏 -->
 <header>
     <div class="container nav">
         <div class="logo">河南铭书教育单招咨询</div>
@@ -259,7 +258,7 @@
                         <th>中职/社会生参考</th>
                     </tr>
                 </thead>
-  <tbody>
+<tbody>
 <tr>
 <td>安阳幼儿师范高等专科学校</td>
 <td>安阳市</td>
@@ -1375,10 +1374,11 @@ A100%B85%C75%D50%E30%
         </div>
     </main>
 
-    <!-- 公共页脚（直接复用） -->
+    <!-- 页脚（复用原有样式） -->
     <footer>
         <div class="container footer-info">
-            <p>单招咨询系统 河南铭书教育专用网站 | 详细咨询：姜老师 17744639665 | 地址：河南省郑州市中牟县青年西路34号大学生众创中心（农校东侧）</p>
+            <p>单招咨询系统 河南铭书教育专用网站<br/>详细咨询：魏老师   17337690694</p>
+            <p>地址:新县地址:新县二高对面（铭书教育） <br/>信阳地址:河南铭书教育信阳分校（金色童年学校） <br/>息县地址:息县二高旁边（铭书教育） <br/>光山地址:光山汽车站进站口（铭书教育）</p>
             <p style="margin-top: 10px; font-size: 12px;">本系统仅提供咨询服务，最终政策以教育考试院公布为准</p>
         </div>
     </footer>
@@ -1390,7 +1390,7 @@ A100%B85%C75%D50%E30%
         const tableRows = document.querySelectorAll('.college-table tbody tr');
         const noResult = document.getElementById('noResult');
 
-        // 成绩等级映射
+        // 成绩等级映射（数值越大等级越高）
         const gradeOrder = {
             'A': 5,
             'B': 4,
@@ -1399,29 +1399,32 @@ A100%B85%C75%D50%E30%
             'E': 1
         };
 
-        // 检查成绩是否比输入的差
-        function isScoreWorse(schoolScore, inputScore) {
+        // 检查成绩前两位是否符合（学校成绩 ≤ 输入成绩）
+        function isScoreMatch(schoolScore, inputScore) {
             // 如果输入为空，则显示所有
-            if (!inputScore) return true;
+            if (!inputScore || inputScore.length < 2) return true;
 
-            // 将输入和学校成绩转为大写
+            // 统一转为大写，避免大小写问题
             inputScore = inputScore.toUpperCase();
             schoolScore = schoolScore.toUpperCase();
 
-            // 如果成绩长度不同，直接返回false
-            if (inputScore.length !== schoolScore.length) return false;
+            // 截取前两位进行对比
+            const inputFirstTwo = inputScore.substring(0, 2);
+            const schoolFirstTwo = schoolScore.substring(0, 2);
 
-            // 检查学校成绩是否比输入成绩差
-            for (let i = 0; i < inputScore.length; i++) {
-                const inputChar = inputScore[i];
-                const schoolChar = schoolScore[i];
+            // 学校成绩长度不足两位，直接不匹配
+            if (schoolFirstTwo.length < 2) return false;
 
-                // 如果学校成绩比输入成绩好，则不显示
-                if (gradeOrder[schoolChar] > gradeOrder[inputChar]) {
+            // 检查每一位：学校成绩 ≤ 输入成绩 则符合条件
+            for (let i = 0; i < 2; i++) {
+                const inputGrade = gradeOrder[inputFirstTwo[i]];
+                const schoolGrade = gradeOrder[schoolFirstTwo[i]];
+
+                // 若学校成绩等级高于输入，直接不符合
+                if (schoolGrade > inputGrade) {
                     return false;
                 }
             }
-
             return true;
         }
 
@@ -1432,14 +1435,15 @@ A100%B85%C75%D50%E30%
             let hasResult = false;
 
             tableRows.forEach(row => {
-                const schoolName = row.cells[0].textContent.toLowerCase(); // 索引从0开始，因为删除了序号列
-                const schoolScore = row.cells[2].textContent.trim(); // 索引从2开始，因为删除了序号列
+                // 修正：会考参考列是cells[3]（索引从0开始）
+                const schoolName = row.cells[0].textContent.toLowerCase();
+                const schoolScore = row.cells[3].textContent.trim();
 
-                // 判断是否匹配
+                // 判断是否匹配：院校名称匹配 + 成绩前两位匹配
                 const isSchoolMatch = schoolKeyword ? schoolName.includes(schoolKeyword) : true;
-                const isScoreMatch = isScoreWorse(schoolScore, scoreKeyword);
+                const isScoreValid = isScoreMatch(schoolScore, scoreKeyword);
 
-                if (isSchoolMatch && isScoreMatch) {
+                if (isSchoolMatch && isScoreValid) {
                     hasResult = true;
                     row.style.display = '';
                 } else {
