@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>三门峡职业技术学院 - 铭书教育单招咨询</title>
+<style>
+        /* 全局基础样式+导航+页脚 - 复用common.css */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c5282;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-menu li a {
+            font-size: 18px;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        .nav-menu li a:hover {
+            border-color: #2c5282;
+            color: #2c5282;
+        }
+        footer {
+            background-color: #2c5282;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .footer-info {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        /* 水印样式 - 复用shuiyin.css */
+        .watermark {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.55;
+            overflow: hidden;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='150'><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-size='2em' font-weight='bold' fill='%232c5282' fill-opacity='0.2' transform='rotate(-45 100 75)'>河南铭书教育</text></svg>");
+            background-size: 200px 150px;
+            background-position: 0 0;
+            background-repeat: repeat;
+        }
+        /* 页面专属样式 - 适配院校信息展示 */
+        .school-title {
+            font-size: 28px;
+            color: #2c5282;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        .school-info table, .major-table table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .school-info table td, .major-table table th, .major-table table td {
+            border: 1px solid #e5e7eb;
+            padding: 12px 15px;
+            font-size: 16px;
+            vertical-align: top;
+        }
+        .school-info table td:first-child, .major-table table th {
+            background-color: #f8fafc;
+            font-weight: 500;
+            width: 200px;
+        }
+        .major-table table th {
+            width: auto;
+            text-align: center;
+        }
+        .title-h2 {
+            font-size: 20px;
+            color: #2c5282;
+            margin: 30px 0 15px;
+            padding-left: 10px;
+            border-left: 4px solid #2c5282;
+        }
+        .title-h3 {
+            font-size: 18px;
+            color: #2c5282;
+            margin: 20px 0 10px;
+        }
+        .text-content {
+            font-size: 16px;
+            line-height: 1.8;
+            margin: 10px 0;
+        }
+        .score-item {
+            margin: 8px 0;
+            font-size: 16px;
+            line-height: 1.8;
+            padding-left: 10px;
+            font-weight: 500;
+        }
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .nav-menu {
+                gap: 15px;
+            }
+            .watermark {
+                background-size: 150px 100px;
+                opacity: 0.55;
+            }
+            .school-title {
+                font-size: 24px;
+            }
+            .school-info table td:first-child {
+                width: 120px;
+                font-size: 14px;
+            }
+            .school-info table td, .major-table table td, .major-table table th {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+            .title-h2 {
+                font-size: 18px;
+            }
+            .title-h3 {
+                font-size: 16px;
+            }
+            .score-item, .text-content {
+                font-size: 14px;
+            }
+        }
+        @media print {
+            .watermark {
+                opacity: 0.55;
+                background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='150'><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-size='2em' font-weight='bold' fill='%232c5282' fill-opacity='0.15' transform='rotate(-45 100 75)'>河南铭书教育</text></svg>");
+                background-size: 200px 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- 水印 -->
+<div class="watermark"></div>
+<!-- 头部导航 -->
+<header>
+<div class="container nav">
+<div class="logo">河南铭书教育单招咨询</div>
+<ul class="nav-menu">
+<li><a href="../shouye.html">首页</a></li>
+<li><a href="../yuanxiao.html">河南单招院校大全</a></li>
+<li><a href="../zhuanye.html">根据专业选院校</a></li>
+<li><a href="../chengji.html">根据成绩选院校</a></li>
+<li><a href="../us.html">关于我们</a></li>
+</ul>
+</div>
+</header>
+<!-- 主体内容 -->
+<main class="container">
+<h1 class="school-title">三门峡职业技术学院</h1>
+<!-- 学校基础信息 -->
+<div class="school-info">
+<table>
+<tr>
+<td>学校类型</td>
+<td>工科公办</td>
+</tr>
+<tr>
+<td>所在地</td>
+<td>河南省三门峡市</td>
+</tr>
+<tr>
+<td>招生代码</td>
+<td>6275</td>
+</tr>
+<tr>
+<td>办学层次</td>
+<td>高职(专科)</td>
+</tr>
+<tr>
+<td>办学类型</td>
+<td>高等职业技术学校</td>
+</tr>
+<tr>
+<td>占地面积</td>
+<td>1400 亩（另有2000 亩新校区正在规划建设中）</td>
+</tr>
+<tr>
+<td>院校隶属</td>
+<td>河南省教育厅</td>
+</tr>
+<tr>
+<td>学校地址</td>
+<td>天鹅湖校区：湖滨区崤山西路42 号；灵凤湖校区：高新区学府路3 号</td>
+</tr>
+<tr>
+<td>成立时间</td>
+<td>1999 年</td>
+</tr>
+<tr>
+<td>特色专业</td>
+<td>国家级骨干专业：旅游管理、建筑室内设计、建筑工程技术、机电一体化技术<br/>省级特色专业建设点：供用电技术、汽车检测与维修技术、旅游管理、机电一体化技术<br/>热门高认可度专业：大数据与会计（分数线最高）、机械制造及自动化、软件技术</td>
+</tr>
+<tr>
+<td>宿舍环境</td>
+<td>天鹅湖校区（老校区）：以八人间为主，上下铺，有暖气、阳台，无独立卫生间，每层楼设公共卫生间<br/>灵凤湖校区（新校区）：以六人间为主，上床下桌，配备空调、暖气、独立卫生间<br/>两校区各楼层均配备洗衣机、热水机</td>
+</tr>
+</table>
+</div>
+<!-- 单招考核方式 -->
+<h2 class="title-h2">单招考核方式</h2>
+<h3 class="title-h3">一、普通高中考生考核科目</h3>
+<div class="text-content">
+<strong>（一）文化知识考试</strong><br/>
+            1. 科目分值：语文100分、数学100分，总分200分；<br/>
+            2. 考试形式：闭卷；<br/>
+            3. 免考政策：普通高中学业水平考试语文、数学成绩均达B级及以上可免考，A级折算90分，B级折算80分。
+        </div>
+<div class="text-content">
+<strong>（二）职业适应性测试</strong><br/>
+            1. 科目分值：总分300分；<br/>
+            2. 考试形式：闭卷（报考音乐表演、艺术设计、民族传统体育专业的考生，以专业技能测试形式进行）；<br/>
+            3. 考试内容：重点考察专业素养、科学素质、职业潜能和职业倾向等。
+        </div>
+<h3 class="title-h3">二、中职考生考核科目</h3>
+<div class="text-content">
+<strong>（一）文化知识考试</strong><br/>
+            1. 科目分值：语文100分、数学100分，总分200分；<br/>
+            2. 考试形式：闭卷；<br/>
+            3. 考试内容：以《中等职业学校公共基础课程教学标准》为依据，考查文化知识素养。
+        </div>
+<div class="text-content">
+<strong>（二）职业技能测试</strong><br/>
+            1. 科目分值：总分300分；<br/>
+            2. 考试形式：闭卷（报考音乐表演、艺术设计、民族传统体育专业的考生，以专业技能测试形式进行）；<br/>
+            3. 考试内容：重点考察综合专业能力、岗位技能、通用技术等。
+        </div>
+<!-- 免试/免考政策 -->
+<h2 class="title-h2">免试/免考政策</h2>
+<div class="text-content">
+<strong>一、免试入学（中职生适用，含应届/在职）</strong><br/>
+            符合以下条件之一可申请：<br/>
+            1. 获教育部/省级职业院校技能大赛三等奖及以上（中职应届）；<br/>
+            2. 具备高级工/技师资格（或相当职业资格）、获县级劳动模范及以上称号（中职在职）。<br/>
+            办理流程：提交获奖证书/资格证书等材料 → 学校审核公示 → 报省教育厅备案。
+        </div>
+<div class="text-content">
+<strong>二、免职业技能测试（中职应届生适用）</strong><br/>
+            省级职业院校技能大赛获二、三等奖的考生可免测，文化知识考试成绩按比例折算（成绩×1.2，满分不超300分）。<br/>
+            办理流程：提交获奖证书等材料 → 学校审核公示。
+        </div>
+<div class="text-content">
+<strong>三、退役士兵免文化知识考试</strong><br/>
+            退役士兵考生可免文化知识考试，需参加职业技能测试；<br/>
+            提交材料：退役证、身份证等原件及复印件 → 提交审核公示；<br/>
+            文化素质成绩按满分300分核算。
+        </div>
+<!-- 单招录取成绩 -->
+<h2 class="title-h2">单招录取最低分数线</h2>
+<div class="score-item">普高毕业生：245 分</div>
+<div class="score-item">中职毕业生：238 分</div>
+<div class="score-item">退役士兵考生（免考文化素质）：162 分</div>
+<!-- 单招专业计划表 -->
+<h2 class="title-h2">单招专业计划表</h2>
+<div class="major-table">
+<table>
+<tr>
+<th>院部名称</th>
+<th>序号</th>
+<th>专业所属大类</th>
+<th>招生专业名称</th>
+<th>学费(元/年)</th>
+<th>学制</th>
+<th>招生计划</th>
+</tr>
+<tr>
+<td rowspan="8">建筑工程学院</td>
+<td>1</td>
+<td>土木建筑大类</td>
+<td>建筑工程技术</td>
+<td>4200</td>
+<td>三年</td>
+<td>20</td>
+</tr>
+<tr>
+<td>2</td>
+<td>土木建筑大类</td>
+<td>工程造价</td>
+<td>4200</td>
+<td>三年</td>
+<td>20</td>
+</tr>
+<tr>
+<td>3</td>
+<td>土木建筑大类</td>
+<td>智能建造技术</td>
+<td>4200</td>
+<td>三年</td>
+<td>20</td>
+</tr>
+<tr>
+<td>4</td>
+<td>土木建筑大类</td>
+<td>建筑智能化工程技术(消防技术方向)</td>
+<td>4200</td>
+<td>三年</td>
+<td>20</td>
+</tr>
+<tr>
+<td>5</td>
+<td>土木建筑大类</td>
+<td>建筑室内设计</td>
+<td>4200</td>
+<td>三年</td>
+<td>20</td>
+</tr>
+<tr>
+<td>6</td>
+<td>土木建筑大类</td>
+<td>建筑装饰工程技术</td>
+<td>4200</td>
+<td>三年</td>
+<td>10</td>
+</tr>
+<tr>
+<td>7</td>
+<td>交通运输大类</td>
+<td>道路与桥梁工程技术</td>
+<td>4200</td>
+<td>三年</td>
+<td>20</td>
+</tr>
+<tr>
+<td>8</td>
+<td>土木建筑大类</td>
+<td>建设工程管理</td>
+<td>4200</td>
+<td>三年</td>
+<td>10</td>
+</tr>
+<tr>
+<td rowspan="7">经济管理学院</td>
+<td>1</td>
+<td>财经商贸大类</td>
+<td>电子商务</td>
+<td>3700</td>
+<td>三年</td>
+<td>40</td>
+</tr>
+<tr>
+<td>2</td>
+<td>财经商贸大类</td>
+<td>商务数据分析与应用</td>
+<td>3700</td>
+<td>三年</td>
+<td>15</td>
+</tr>
+<tr>
+<td>3</td>
+<td>财经商贸大类</td>
+<td>市场营销</td>
+<td>3700</td>
+<td>三年</td>
+<td>10</td>
+</tr>
+<tr>
+<td>4</td>
+<td>财经商贸大类</td>
+<td>现代物流管理</td>
+<td>3700</td>
+<td>三年</td>
+<td>5</td>
+</tr>
+<tr>
+<td>5</td>
+<td>旅游大类</td>
+<td>旅游管理</td>
+<td>3700</td>
+<td>三年</td>
+<td>20</td>
+</tr>
+<tr>
+<td>6</td>
+<td>旅游大类</td>
+<td>旅游管理(文旅融合方向)</td>
+<td>3700</td>
+<td>三年</td>
+<td>15</td>
+</tr>
+<tr>
+<td>7</td>
+<td>旅游大类</td>
+<td>酒店管理与数字化运营</td>
+<td>3700</td>
+<td>三年</td>
+<td>20</td>
+</tr>
+<tr>
+<td rowspan="5">汽车学院</td>
+<td>1</td>
+<td>装备制造大类</td>
+<td>机电一体化技术(中外合作办学)</td>
+<td>13600</td>
+<td>三年</td>
+<td>50</td>
+</tr>
+<tr>
+<td>2</td>
+<td>装备制造大类</td>
+<td>数控技术</td>
+<td>4200</td>
+<td>三年</td>
+<td>15</td>
+</tr>
+<tr>
+<td>3</td>
+<td>装备制造大类</td>
+<td>智能控制技术(轴承智能设备方向)</td>
+<td>4200</td>
+<td>三年</td>
+<td>20</td>
+</tr>
+<tr>
+<td>4</td>
+<td>交通运输大类</td>
+<td>汽车检测与维修技术(电动车方向)</td>
+<td>4200</td>
+<td>三年</td>
+<td>20</td>
+</tr>
+<tr>
+<td>5</td>
+<td>装备制造大类</td>
+<td>智能网联汽车技术(轿车先进制造方向)</td>
+<td>4200</td>
+<td>三年</td>
+<td>10</td>
+</tr>
+<tr>
+<td rowspan="2">师范学院</td>
+<td>1</td>
+<td>文化艺术大类</td>
+<td>艺术设计</td>
+<td>6000</td>
+<td>三年</td>
+<td>20</td>
+</tr>
+<tr>
+<td>2</td>
+<td>文化艺术大类</td>
+<td>音乐表演</td>
+<td>6000</td>
+<td>三年</td>
+<td>20</td>
+</tr>
+<tr>
+<td rowspan="6">食品园林学院</td>
+<td>1</td>
+<td>食品药品与粮食大类</td>
+<td>食品智能加工技术</td>
+<td>4200</td>
+<td>三年</td>
+<td>20</td>
+</tr>
+<tr>
+<td>2</td>
+<td>农林牧渔大类</td>
+<td>园林技术</td>
+<td>4200</td>
+<td>三年</td>
+<td>25</td>
+</tr>
+<tr>
+<td>3</td>
+<td>生物与化工大类</td>
+<td>应用化工技术</td>
+<td>4200</td>
+<td>三年</td>
+<td>25</td>
+</tr>
+<tr>
+<td>4</td>
+<td>能源动力与材料大类</td>
+<td>有色金属智能冶金技术</td>
+<td>4200</td>
+<td>三年</td>
+<td>10</td>
+</tr>
+<tr>
+<td>5</td>
+<td>资源环境与安全大类</td>
+<td>环境工程技术</td>
+<td>4200</td>
+<td>三年</td>
+<td>15</td>
+</tr>
+<tr>
+<td>6</td>
+<td>食品药品与粮食大类</td>
+<td>药品经营与管理</td>
+<td>4200</td>
+<td>三年</td>
+<td>10</td>
+</tr>
+<tr>
+<td>体育学院</td>
+<td>1</td>
+<td>教育与体育大类</td>
+<td>民族传统体育</td>
+<td>3700</td>
+<td>三年</td>
+<td>20</td>
+</tr>
+<tr>
+<td rowspan="5">信息传媒学院</td>
+<td>1</td>
+<td>电子与信息大类</td>
+<td>计算机应用技术</td>
+<td>4620</td>
+<td>三年</td>
+<td>10</td>
+</tr>
+<tr>
+<td>2</td>
+<td>电子与信息大类</td>
+<td>计算机应用技术(通讯设备运维方向)</td>
+<td>4620</td>
+<td>三年</td>
+<td>10</td>
+</tr>
+<tr>
+<td>3</td>
+<td>电子与信息大类</td>
+<td>软件技术</td>
+<td>4200</td>
+<td>三年</td>
+<td>15</td>
+</tr>
+<tr>
+<td>4</td>
+<td>电子与信息大类</td>
+<td>动漫制作技术</td>
+<td>4200</td>
+<td>三年</td>
+<td>15</td>
+</tr>
+<tr>
+<td>5</td>
+<td>电子与信息大类</td>
+<td>大数据技术</td>
+<td>4200</td>
+<td>三年</td>
+<td>10</td>
+</tr>
+<tr>
+<td rowspan="2">软件学院</td>
+<td>6</td>
+<td>电子与信息大类</td>
+<td>软件技术(软件学院)</td>
+<td>8000</td>
+<td>两年</td>
+<td>10</td>
+</tr>
+<tr>
+<td>7</td>
+<td>电子与信息大类</td>
+<td>计算机应用技术(网络视听审核方向)(软件学院)</td>
+<td>8000</td>
+<td>两年</td>
+<td>140</td>
+</tr>
+<tr>
+<td rowspan="5">医护学院</td>
+<td>1</td>
+<td>医药卫生大类</td>
+<td>护理</td>
+<td>5280</td>
+<td>三年</td>
+<td>50</td>
+</tr>
+<tr>
+<td>2</td>
+<td>医药卫生大类</td>
+<td>护理(中外合作办学)</td>
+<td>10680</td>
+<td>三年</td>
+<td>30</td>
+</tr>
+<tr>
+<td>3</td>
+<td>医药卫生大类</td>
+<td>助产</td>
+<td>4800</td>
+<td>三年</td>
+<td>10</td>
+</tr>
+<tr>
+<td>4</td>
+<td>医药卫生大类</td>
+<td>中药学</td>
+<td>4800</td>
+<td>三年</td>
+<td>10</td>
+</tr>
+<tr>
+<td>5</td>
+<td>医药卫生大类</td>
+<td>康复治疗技术</td>
+<td>5280</td>
+<td>三年</td>
+<td>10</td>
+</tr>
+<tr>
+<td rowspan="6">智能制造学院</td>
+<td>1</td>
+<td>能源动力与材料大类</td>
+<td>风力发电工程技术</td>
+<td>4200</td>
+<td>三年</td>
+<td>10</td>
+</tr>
+<tr>
+<td>2</td>
+<td>装备制造大类</td>
+<td>机械制造及自动化</td>
+<td>4200</td>
+<td>三年</td>
+<td>10</td>
+</tr>
+<tr>
+<td>3</td>
+<td>装备制造大类</td>
+<td>工业机器人技术</td>
+<td>4200</td>
+<td>三年</td>
+<td>15</td>
+</tr>
+<tr>
+<td>4</td>
+<td>装备制造大类</td>
+<td>电气自动化技术</td>
+<td>4200</td>
+<td>三年</td>
+<td>10</td>
+</tr>
+<tr>
+<td>5</td>
+<td>电子与信息大类</td>
+<td>电子信息工程技术</td>
+<td>4200</td>
+<td>三年</td>
+<td>20</td>
+</tr>
+<tr>
+<td>6</td>
+<td>电子与信息大类</td>
+<td>物联网应用技术</td>
+<td>4200</td>
+<td>三年</td>
+<td>20</td>
+</tr>
+</table>
+</div>
+</main>
+<!-- 页脚 -->
+ <!-- 页脚（复用原有样式） -->
+<footer>
+<div class="container footer-info">
+<p>单招咨询系统 河南铭书教育专用网站<br/>详细咨询：魏老师   17337690694</p>
+<p>新县地址:新县二高对面（铭书教育） <br/>信阳地址:河南铭书教育信阳分校（金色童年学校） <br/>息县地址:息县二高旁边（铭书教育） <br/>光山地址:光山汽车站进站口（铭书教育）</p>
+<p style="margin-top: 10px; font-size: 12px;">本系统仅提供咨询服务，最终政策以教育考试院公布为准</p>
+</div>
+</footer>
+<!-- 登录状态检查脚本 -->
+<script>
+        // 登录状态检查
+        function checkLogin() {
+            const isLoggedIn = localStorage.getItem('userLoginStatus') === 'true';
+            const currentPage = window.location.pathname.split('/').pop();
+            if (!isLoggedIn && currentPage !== '../index.html') {
+                window.location.href = '../index.html';
+                return false;
+            }
+            if (isLoggedIn && currentPage === '../index.html') {
+                window.location.href = '../shouye.html';
+                return false;
+            }
+            return true;
+        }
+        // 页面加载时检查
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!checkLogin()) return;
+            const currentPage = window.location.pathname.split('/').pop();
+            if (currentPage !== '../index.html') {
+                const userName = localStorage.getItem('userName');
+                if (userName) {
+                    const nav = document.querySelector('.nav');
+                    if (nav) {
+                        let userDiv = nav.querySelector('.user-info');
+                        if (!userDiv) {
+                            userDiv = document.createElement('div');
+                            userDiv.className = 'user-info';
+                            userDiv.innerHTML = `
+                                <span style="color: #2c5282; margin-right: 20px;">欢迎，${userName}</span>
+                                <a href="#" onclick="logout()" style="color: #ff6b6b;">退出</a>
+                            `;
+                            nav.appendChild(userDiv);
+                        }
+                    }
+                }
+            }
+        });
+        // 退出登录
+        function logout() {
+            localStorage.removeItem('userLoginStatus');
+            localStorage.removeItem('userName');
+            window.location.href = '../index.html';
+        }
+    </script>
+</body>
+</html>

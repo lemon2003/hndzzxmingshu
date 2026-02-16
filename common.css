@@ -28,6 +28,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
+
 }
 
 .nav {
@@ -49,7 +50,7 @@ header {
 }
 
 .nav-menu li a {
-    font-size: 16px;
+    font-size: 18px;
     padding: 5px 0;
     border-bottom: 2px solid transparent;
     transition: border-color 0.3s;
@@ -73,6 +74,42 @@ footer {
     font-size: 14px;
     opacity: 0.9;
 }
+
+/* 重命名后的 mytb 表格样式 */
+.mytb {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.mytb th,
+.mytb td {
+    border: 1px solid #e5e7eb;
+    padding: 12px 15px;
+    font-size: 16px;
+    vertical-align: top;
+}
+
+.mytb th {
+    background-color: #f8fafc;
+    font-weight: 500;
+    width: 120px;
+    text-align: center;
+}
+
+.mytb td {
+    text-align: center;
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+    .mytb {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+
 
 /* 响应式适配（导航+页脚） */
 @media (max-width: 768px) {

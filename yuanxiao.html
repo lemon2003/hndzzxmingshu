@@ -191,7 +191,7 @@
     <footer>
         <div class="container footer-info">
             <p>单招咨询系统 河南铭书教育专用网站<br/>详细咨询：魏老师   17337690694</p>
-            <p>地址:新县地址:新县二高对面（铭书教育） <br/>信阳地址:河南铭书教育信阳分校（金色童年学校） <br/>息县地址:息县二高旁边（铭书教育） <br/>光山地址:光山汽车站进站口（铭书教育）</p>
+            <p>新县地址:新县二高对面（铭书教育） <br/>信阳地址:河南铭书教育信阳分校（金色童年学校） <br/>息县地址:息县二高旁边（铭书教育） <br/>光山地址:光山汽车站进站口（铭书教育）</p>
             <p style="margin-top: 10px; font-size: 12px;">本系统仅提供咨询服务，最终政策以教育考试院公布为准</p>
         </div>
     </footer>
@@ -266,7 +266,7 @@ const schools = [
             { id: 66, name: "郑州工商学院", location: "郑州" },
             { id: 67, name: "河南质量工程职业学院", location: "平顶山" },
             { id: 68, name: "嵩山少林武术职业学院", location: "登封" },
-            { id: 69, name: "漯漯漯漯漯漯漯漯河食品工程职业大学", location: "漯漯漯漯河" },
+            { id: 69, name: "漯河食品工程职业大学", location: "漯河" },
             { id: 70, name: "郑州城市职业学院", location: "郑州" },
             { id: 71, name: "焦作工贸职业学院", location: "焦作" },
             { id: 72, name: "郑州理工职业学院", location: "郑州" },
@@ -327,7 +327,7 @@ const schools = [
                 // 再创建院校名称单元格
                 const nameCell = document.createElement('td');
                 const link = document.createElement('a');
-                link.href = `all/${school.id}.pdf`;
+                link.href = `html/${school.id}.html`;
                 link.className = 'school-link';
                 link.textContent = school.name;
                 nameCell.appendChild(link);

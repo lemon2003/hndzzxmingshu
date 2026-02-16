@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>开封大学 - 铭书教育单招咨询</title>
+<style>
+        /* 全局基础样式+导航+页脚 - 复用common.css */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c5282;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-menu li a {
+            font-size: 18px;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        .nav-menu li a:hover {
+            border-color: #2c5282;
+            color: #2c5282;
+        }
+        footer {
+            background-color: #2c5282;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .footer-info {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        /* 水印样式 - 复用shuiyin.css */
+        .watermark {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.55;
+            overflow: hidden;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='150'><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-size='2em' font-weight='bold' fill='%232c5282' fill-opacity='0.2' transform='rotate(-45 100 75)'>河南铭书教育</text></svg>");
+            background-size: 200px 150px;
+            background-position: 0 0;
+            background-repeat: repeat;
+        }
+        /* 页面专属样式 - 适配院校信息展示 */
+        .school-title {
+            font-size: 28px;
+            color: #2c5282;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        .school-info table, .major-table table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .school-info table td, .major-table table th, .major-table table td {
+            border: 1px solid #e5e7eb;
+            padding: 12px 15px;
+            font-size: 16px;
+            vertical-align: top;
+        }
+        .school-info table td:first-child, .major-table table th {
+            background-color: #f8fafc;
+            font-weight: 500;
+            width: 200px;
+        }
+        .major-table table th {
+            width: auto;
+            text-align: center;
+        }
+        .title-h2 {
+            font-size: 20px;
+            color: #2c5282;
+            margin: 30px 0 15px;
+            padding-left: 10px;
+            border-left: 4px solid #2c5282;
+        }
+        .title-h3 {
+            font-size: 18px;
+            color: #2c5282;
+            margin: 20px 0 10px;
+        }
+        .text-content {
+            font-size: 16px;
+            line-height: 1.8;
+            margin: 10px 0;
+        }
+        .score-item {
+            margin: 8px 0;
+            font-size: 16px;
+            line-height: 1.8;
+            padding-left: 10px;
+            font-weight: 500;
+        }
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .nav-menu {
+                gap: 15px;
+            }
+            .watermark {
+                background-size: 150px 100px;
+                opacity: 0.55;
+            }
+            .school-title {
+                font-size: 24px;
+            }
+            .school-info table td:first-child {
+                width: 120px;
+                font-size: 14px;
+            }
+            .school-info table td, .major-table table td, .major-table table th {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+            .title-h2 {
+                font-size: 18px;
+            }
+            .title-h3 {
+                font-size: 16px;
+            }
+            .score-item, .text-content {
+                font-size: 14px;
+            }
+        }
+        @media print {
+            .watermark {
+                opacity: 0.55;
+                background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='150'><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-size='2em' font-weight='bold' fill='%232c5282' fill-opacity='0.15' transform='rotate(-45 100 75)'>河南铭书教育</text></svg>");
+                background-size: 200px 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- 水印 -->
+<div class="watermark"></div>
+<!-- 头部导航 -->
+<header>
+<div class="container nav">
+<div class="logo">河南铭书教育单招咨询</div>
+<ul class="nav-menu">
+<li><a href="../shouye.html">首页</a></li>
+<li><a href="../yuanxiao.html">河南单招院校大全</a></li>
+<li><a href="../zhuanye.html">根据专业选院校</a></li>
+<li><a href="../chengji.html">根据成绩选院校</a></li>
+<li><a href="../us.html">关于我们</a></li>
+</ul>
+</div>
+</header>
+<!-- 主体内容 -->
+<main class="container">
+<h1 class="school-title">开封大学</h1>
+<!-- 学校基础信息 -->
+<div class="school-info">
+<table>
+<tr>
+<td>学校类型</td>
+<td>综合公办</td>
+</tr>
+<tr>
+<td>所在地</td>
+<td>河南省开封市</td>
+</tr>
+<tr>
+<td>招生代码</td>
+<td>6252</td>
+</tr>
+<tr>
+<td>办学层次</td>
+<td>高职(专科)</td>
+</tr>
+<tr>
+<td>办学类型</td>
+<td>高等职业技术学校</td>
+</tr>
+<tr>
+<td>占地面积</td>
+<td>约1300 余亩</td>
+</tr>
+<tr>
+<td>院校隶属</td>
+<td>河南省教育厅与开封市人民政府共建，以开封市人民政府管理为主</td>
+</tr>
+<tr>
+<td>学校地址</td>
+<td>河南省开封市龙亭区东京大道157 号（主校区）</td>
+</tr>
+<tr>
+<td>成立时间</td>
+<td>1980 年3 月1 日</td>
+</tr>
+<tr>
+<td>特色专业</td>
+<td>国家级骨干专业：应用化工技术、旅游管理<br/>省级特色专业：机械制造与自动化、会计电算化、生物化工工艺、建筑工程技术、服装设计<br/>省级综合改革试点专业：电气自动化技术、护理、软件技术</td>
+</tr>
+<tr>
+<td>宿舍环境</td>
+<td>多为4-6人间（部分为8人间，近年逐步改造）；配备空调、暖气、书桌、衣柜；部分宿舍有独立卫生间、阳台；公共区域设有洗衣房、直饮水设备<br/>宿费标准：750元/生·学年</td>
+</tr>
+</table>
+</div>
+<!-- 单招考核方式 -->
+<h2 class="title-h2">单招考核方式</h2>
+<div class="text-content">采用<strong>文化素质+职业技能(或职业适应性测试)</strong>的考核模式，考核总分合计600分，所有考生均需参加职业技能/职业适应性测试。</div>
+<h3 class="title-h3">一、文化素质考试</h3>
+<div class="text-content">
+<strong>适用对象</strong>：中职生、社会考生等需参加统一文化素质考试；高中生有高中学业水平考试成绩的，按等级折算文化素质成绩，无成绩的需参加统一考试
+            <br/><strong>学业水平成绩折算规则</strong>：A=100分，B=85分，C=70分，D=60分，E=不予赋分
+            <br/><strong>统一考试科目与分值</strong>：语文150分、数学75分、英语75分，总分300分
+        </div>
+<h3 class="title-h3">二、职业技能测试/职业适应性测试</h3>
+<div class="text-content">
+<strong>考核形式</strong>：笔试+面试结合，所有类型考生均需参加
+            <br/><strong>分值设置</strong>：笔试满分200分，面试满分100分，合计300分
+            <br/><strong>考核内容</strong>：主要考察考生语言组织、专业素养、科学素质等多方面综合能力
+        </div>
+<!-- 单招录取成绩 -->
+<h2 class="title-h2">单招录取最低控制分数线</h2>
+<div class="score-item">高中生：有高中学业水平成绩等级的考生，300 分</div>
+<div class="score-item">中职及社会考生：中职毕业生、社会考生及无高中学业水平成绩等级的考生，260 分</div>
+<div class="score-item">退役士兵考生：免文化素质考试，仅以职业适应性测试成绩为依据，150 分</div>
+<!-- 单招专业计划表 -->
+<h2 class="title-h2">2025年单招专业及计划</h2>
+<div class="major-table">
+<table>
+<tr>
+<th>学院</th>
+<th>专业名称</th>
+<th>计划数</th>
+<th>有高中学业水平考试成绩等级的考生计划数</th>
+<th>无高中学业水平考试成绩等级(社会考生)的考生计划数</th>
+<th>中职生计划数</th>
+<th>退役士兵计划数</th>
+</tr>
+<tr>
+<td rowspan="3">土木建筑工程学院</td>
+<td>建筑工程技术</td>
+<td>55</td>
+<td>35</td>
+<td>5</td>
+<td>15</td>
+<td>-</td>
+</tr>
+<tr>
+<td>道路与桥梁工程技术</td>
+<td>55</td>
+<td>50</td>
+<td>5</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>装配式建筑构件智能制造</td>
+<td>55</td>
+<td>50</td>
+<td>5</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td rowspan="2">智能制造学院</td>
+<td>机电一体化技术</td>
+<td>55</td>
+<td>44</td>
+<td>5</td>
+<td>6</td>
+<td>-</td>
+</tr>
+<tr>
+<td>电气自动化技术</td>
+<td>55</td>
+<td>44</td>
+<td>5</td>
+<td>6</td>
+<td>-</td>
+</tr>
+<tr>
+<td>材料与化学工程学院</td>
+<td>应用化工技术(现代学徒制)</td>
+<td>110</td>
+<td>90</td>
+<td>10</td>
+<td>5</td>
+<td>5</td>
+</tr>
+<tr>
+<td rowspan="2">数字经贸学院</td>
+<td>现代物流管理</td>
+<td>55</td>
+<td>45</td>
+<td>5</td>
+<td>5</td>
+<td>-</td>
+</tr>
+<tr>
+<td>电子商务</td>
+<td>55</td>
+<td>40</td>
+<td>5</td>
+<td>10</td>
+<td>-</td>
+</tr>
+<tr>
+<td rowspan="2">文化与旅游学院</td>
+<td>旅游管理</td>
+<td>55</td>
+<td>34</td>
+<td>5</td>
+<td>11</td>
+<td>5</td>
+</tr>
+<tr>
+<td>酒店管理与数字化运营</td>
+<td>55</td>
+<td>39</td>
+<td>5</td>
+<td>11</td>
+<td>-</td>
+</tr>
+<tr>
+<td>艺术设计学院</td>
+<td>服装与服饰设计</td>
+<td>50</td>
+<td>-</td>
+<td>-</td>
+<td>50</td>
+<td>-</td>
+</tr>
+<tr>
+<td>医学院</td>
+<td>护理</td>
+<td>55</td>
+<td>-</td>
+<td>-</td>
+<td>55</td>
+<td>-</td>
+</tr>
+<tr>
+<td rowspan="5">国际教育学院(外国语学院)</td>
+<td>应用日语</td>
+<td>60</td>
+<td>15</td>
+<td>5</td>
+<td>40</td>
+<td>-</td>
+</tr>
+<tr>
+<td>跨境电子商务</td>
+<td>60</td>
+<td>55</td>
+<td>5</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>大数据与会计(中外合作办学)</td>
+<td>70</td>
+<td>50</td>
+<td>20</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>现代物流管理(中外合作办学)</td>
+<td>70</td>
+<td>50</td>
+<td>20</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>电子商务(中外合作办学)</td>
+<td>70</td>
+<td>50</td>
+<td>20</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+</main>
+<!-- 页脚 -->
+ <!-- 页脚（复用原有样式） -->
+<footer>
+<div class="container footer-info">
+<p>单招咨询系统 河南铭书教育专用网站<br/>详细咨询：魏老师   17337690694</p>
+<p>新县地址:新县二高对面（铭书教育） <br/>信阳地址:河南铭书教育信阳分校（金色童年学校） <br/>息县地址:息县二高旁边（铭书教育） <br/>光山地址:光山汽车站进站口（铭书教育）</p>
+<p style="margin-top: 10px; font-size: 12px;">本系统仅提供咨询服务，最终政策以教育考试院公布为准</p>
+</div>
+</footer>
+<!-- 登录状态检查脚本 -->
+<script>
+        // 登录状态检查
+        function checkLogin() {
+            const isLoggedIn = localStorage.getItem('userLoginStatus') === 'true';
+            const currentPage = window.location.pathname.split('/').pop();
+            if (!isLoggedIn && currentPage !== '../index.html') {
+                window.location.href = '../index.html';
+                return false;
+            }
+            if (isLoggedIn && currentPage === '../index.html') {
+                window.location.href = '../shouye.html';
+                return false;
+            }
+            return true;
+        }
+        // 页面加载时检查
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!checkLogin()) return;
+            const currentPage = window.location.pathname.split('/').pop();
+            if (currentPage !== '../index.html') {
+                const userName = localStorage.getItem('userName');
+                if (userName) {
+                    const nav = document.querySelector('.nav');
+                    if (nav) {
+                        let userDiv = nav.querySelector('.user-info');
+                        if (!userDiv) {
+                            userDiv = document.createElement('div');
+                            userDiv.className = 'user-info';
+                            userDiv.innerHTML = `
+                                <span style="color: #2c5282; margin-right: 20px;">欢迎，${userName}</span>
+                                <a href="#" onclick="logout()" style="color: #ff6b6b;">退出</a>
+                            `;
+                            nav.appendChild(userDiv);
+                        }
+                    }
+                }
+            }
+        });
+        // 退出登录
+        function logout() {
+            localStorage.removeItem('userLoginStatus');
+            localStorage.removeItem('userName');
+            window.location.href = '../index.html';
+        }
+    </script>
+</body>
+</html>

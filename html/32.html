@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>兰考三农职业学院 - 铭书教育单招咨询</title>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c5282;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-menu li a {
+            font-size: 18px;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        .nav-menu li a:hover {
+            border-color: #2c5282;
+            color: #2c5282;
+        }
+        footer {
+            background-color: #2c5282;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .footer-info {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .watermark {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.55;
+            overflow: hidden;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='150'><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-size='2em' font-weight='bold' fill='%232c5282' fill-opacity='0.2' transform='rotate(-45 100 75)'>河南铭书教育</text></svg>");
+            background-size: 200px 150px;
+            background-position: 0 0;
+            background-repeat: repeat;
+        }
+        .school-title {
+            font-size: 28px;
+            color: #2c5282;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        .school-info table, .score-table table, .major-table table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .school-info table td, .score-table table th, .score-table table td, .major-table table th, .major-table table td {
+            border: 1px solid #e5e7eb;
+            padding: 12px 15px;
+            font-size: 16px;
+            vertical-align: top;
+        }
+        .school-info table td:first-child, .score-table table th, .major-table table th {
+            background-color: #f8fafc;
+            font-weight: 500;
+            width: 200px;
+        }
+        .score-table table th, .major-table table th {
+            width: auto;
+            text-align: center;
+        }
+        .title-h2 {
+            font-size: 20px;
+            color: #2c5282;
+            margin: 30px 0 15px;
+            padding-left: 10px;
+            border-left: 4px solid #2c5282;
+        }
+        .title-h3 {
+            font-size: 18px;
+            color: #2c5282;
+            margin: 20px 0 10px;
+        }
+        .text-content {
+            font-size: 16px;
+            line-height: 1.8;
+            margin: 10px 0;
+        }
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .nav-menu {
+                gap: 15px;
+            }
+            .watermark {
+                background-size: 150px 100px;
+                opacity: 0.55;
+            }
+            .school-title {
+                font-size: 24px;
+            }
+            .school-info table td:first-child {
+                width: 120px;
+                font-size: 14px;
+            }
+            .school-info table td, .score-table table td, .score-table table th, .major-table table td, .major-table table th {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+            .title-h2 {
+                font-size: 18px;
+            }
+            .title-h3 {
+                font-size: 16px;
+            }
+            .text-content {
+                font-size: 14px;
+            }
+        }
+        @media print {
+            .watermark {
+                opacity: 0.55;
+                background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='150'><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-size='2em' font-weight='bold' fill='%232c5282' fill-opacity='0.15' transform='rotate(-45 100 75)'>河南铭书教育</text></svg>");
+                background-size: 200px 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="watermark"></div>
+<header>
+<div class="container nav">
+<div class="logo">河南铭书教育单招咨询</div>
+<ul class="nav-menu">
+<li><a href="../shouye.html">首页</a></li>
+<li><a href="../yuanxiao.html">河南单招院校大全</a></li>
+<li><a href="../zhuanye.html">根据专业选院校</a></li>
+<li><a href="../chengji.html">根据成绩选院校</a></li>
+<li><a href="../us.html">关于我们</a></li>
+</ul>
+</div>
+</header>
+<main class="container">
+<h1 class="school-title">兰考三农职业学院</h1>
+<div class="school-info">
+<table>
+<tr>
+<td>学校类型</td>
+<td>综合公办（聚焦乡村振兴）</td>
+</tr>
+<tr>
+<td>招生代码</td>
+<td>6357</td>
+</tr>
+<tr>
+<td>所在地</td>
+<td>河南省开封市兰考县</td>
+</tr>
+<tr>
+<td>办学层次</td>
+<td>高职(专科)</td>
+</tr>
+<tr>
+<td>办学类型</td>
+<td>高等专科学校</td>
+</tr>
+<tr>
+<td>占地面积</td>
+<td>约650亩（含主校区、现代农业实训基地及乡村振兴研究院，建筑面积20万平方米，一期工程2020年投入使用）</td>
+</tr>
+<tr>
+<td>院校隶属</td>
+<td>河南省教育厅主管，开封市人民政府与兰考县人民政府共建(以兰考县人民政府管理为主，聚焦服务乡村振兴战略)</td>
+</tr>
+<tr>
+<td>学校地址</td>
+<td>河南省开封市兰考县裕禄大道与文体路交叉口向东200米(主校区)</td>
+</tr>
+<tr>
+<td>成立时间</td>
+<td>2020 年</td>
+</tr>
+<tr>
+<td>特色专业</td>
+<td>省级重点培育专业：现代农业技术(粮食种植/经济作物)、畜禽智能化养殖(畜禽养殖与疫病防控)、园艺技术(果树/蔬菜栽培)<br/>校级重点专业：农村电子商务(农产品直播带货)、食品智能加工技术(特色农产品加工)、大数据与会计(农村财务管理)、智慧健康养老服务与管理(乡村养老)<br/>新兴专业：现代农业装备应用技术(智能农机操作)、乡村治理(基层党建与社区管理)、宠物医疗技术(乡村宠物诊疗)</td>
+</tr>
+<tr>
+<td>宿舍环境</td>
+<td>以4-6人间为主（均为新建标准化公寓，无8人间），住宿费800元/生·年；标配：空调、暖气、独立书桌+书架、定制衣柜、独立阳台、公共卫生间(每层集中配置)；公共区域：每层设直饮水机，楼下配套共享洗衣房(含烘干机)、便利店、自动售货机，宿舍区实行24小时安保与门禁管理（涉农专业宿舍优先配置朝南房间）</td>
+</tr>
+</table>
+</div>
+<h2 class="title-h2">单招考核方式</h2>
+<div class="text-content">单招实行<strong>文化素质+职业技能</strong>考核方式，职业技能考试分值占比不低于总分50%，考生总成绩=文化素质成绩+职业适应性成绩，两项满分均为150分，总满分300分；退役士兵免文化素质考试，所有考生均须参加职业技能测试。</div>
+<h3 class="title-h3">一、文化素质考试（满分150分）</h3>
+<div class="major-plan-table" style="margin-left:20px;">
+<strong>1. 高中毕业生</strong>：采用学考语文、数学、外语三科等级成绩折算，替代校考，分两类折算规则：<br/>
+            ①四等级：A50分、B40分、C30分、D20分<br/>
+            ②五等级：A50分、B45分、C35分、D25分、E20分<br/>
+<strong>2. 中职毕业生/社会考生</strong>：参加校组织的语数外综合笔试，考试时间90分钟，语文60分、数学50分、英语40分，满分150分<br/>
+<strong>3. 退役士兵考生</strong>：按要求完成<strong>资格条件申报</strong>后免考文化素质考试
+        </div>
+<h3 class="title-h3">二、职业技能测试（满分150分）</h3>
+<div class="major-plan-table" style="margin-left:20px;">
+            所有考生均须参加，采用90分钟笔试试卷形式，主要考查考生的专业素养、综合素质、职业潜能和分析解决问题能力。
+        </div>
+<h2 class="title-h2">2025年单招最低控制线</h2>
+<div class="score-table">
+<table>
+<tr>
+<th>考生类别</th>
+<th>专业类别</th>
+<th>志愿类型</th>
+<th>最低控制线(分)</th>
+</tr>
+<tr>
+<td rowspan="16">高中毕业生(有学业水平成绩)</td>
+<td rowspan="4">涉农类(现代农业技术、畜禽智能化养殖等)</td>
+<td>一志愿</td>
+<td>185(含赋分，职业技能测试最低68分)</td>
+</tr>
+<tr>
+<td>二志愿</td>
+<td>178</td>
+</tr>
+<tr>
+<td>三志愿</td>
+<td>172</td>
+</tr>
+<tr>
+<td>征集志愿</td>
+<td>182</td>
+</tr>
+<tr>
+<td rowspan="4">智能制造类(数控技术、工业机器人技术等)</td>
+<td>一志愿</td>
+<td>182(含赋分，职业技能测试最低66分)</td>
+</tr>
+<tr>
+<td>二志愿</td>
+<td>175</td>
+</tr>
+<tr>
+<td>三志愿</td>
+<td>169</td>
+</tr>
+<tr>
+<td>征集志愿</td>
+<td>179</td>
+</tr>
+<tr>
+<td rowspan="4">财经商贸与服务类(大数据与会计、电子商务等)</td>
+<td>一志愿</td>
+<td>190(含赋分，职业技能测试最低70分)</td>
+</tr>
+<tr>
+<td>二志愿</td>
+<td>183</td>
+</tr>
+<tr>
+<td>三志愿</td>
+<td>177</td>
+</tr>
+<tr>
+<td>征集志愿</td>
+<td>187</td>
+</tr>
+<tr>
+<td rowspan="4">艺术类(乐器制造与维护、音乐表演等)</td>
+<td>一志愿</td>
+<td>178(含赋分，职业技能测试最低65分)</td>
+</tr>
+<tr>
+<td>二志愿</td>
+<td>171</td>
+</tr>
+<tr>
+<td>三志愿</td>
+<td>165</td>
+</tr>
+<tr>
+<td>征集志愿</td>
+<td>175</td>
+</tr>
+<tr>
+<td rowspan="4">中职毕业生/社会考生</td>
+<td rowspan="4">综合类</td>
+<td>一志愿</td>
+<td>175(含赋分，职业技能测试最低63分)</td>
+</tr>
+<tr>
+<td>二志愿</td>
+<td>110</td>
+</tr>
+<tr>
+<td>三志愿</td>
+<td>168</td>
+</tr>
+<tr>
+<td>征集志愿</td>
+<td>162</td>
+</tr>
+<tr>
+<td rowspan="4">退役士兵考生</td>
+<td rowspan="4">指定专业</td>
+<td>一志愿</td>
+<td>115(含赋分，职业技能测试最低60分)</td>
+</tr>
+<tr>
+<td>二志愿</td>
+<td>118</td>
+</tr>
+<tr>
+<td>三志愿</td>
+<td>120</td>
+</tr>
+<tr>
+<td>征集志愿</td>
+<td>123</td>
+</tr>
+</table>
+</div>
+<h2 class="title-h2">2025年单招招生计划表（学制均为3年）</h2>
+<div class="major-table">
+<table>
+<tr>
+<th>序号</th>
+<th>专业名称</th>
+<th>招生人数</th>
+<th>学费(元/年)</th>
+</tr>
+<tr>
+<td>1</td>
+<td>现代农业技术</td>
+<td>20</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>2</td>
+<td>畜禽智能化养殖</td>
+<td>20</td>
+<td>3700</td>
+</tr>
+<tr>
+<td>3</td>
+<td>食品检验检测技术</td>
+<td>15</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>4</td>
+<td>食品营养与健康</td>
+<td>15</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>6</td>
+<td>物联网应用技术</td>
+<td>20</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>7</td>
+<td>人工智能技术应用</td>
+<td>10</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>8</td>
+<td>乐器制造与维护</td>
+<td>20</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>9</td>
+<td>环境艺术设计</td>
+<td>20</td>
+<td>6000</td>
+</tr>
+<tr>
+<td>10</td>
+<td>数控技术</td>
+<td>20</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>11</td>
+<td>工业机器人技术</td>
+<td>10</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>12</td>
+<td>电梯工程技术</td>
+<td>30</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>13</td>
+<td>无人机应用技术</td>
+<td>15</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>14</td>
+<td>智能制造装备技术</td>
+<td>15</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>15</td>
+<td>旅游管理</td>
+<td>15</td>
+<td>3700</td>
+</tr>
+<tr>
+<td>16</td>
+<td>航海技术</td>
+<td>15</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>17</td>
+<td>现代家政服务与管理</td>
+<td>20</td>
+<td>3700</td>
+</tr>
+<tr>
+<td>18</td>
+<td>电子商务</td>
+<td>20</td>
+<td>3700</td>
+</tr>
+<tr>
+<td>19</td>
+<td>现代物流管理</td>
+<td>20</td>
+<td>3700</td>
+</tr>
+<tr>
+<td>20</td>
+<td>建筑工程技术</td>
+<td>20</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>21</td>
+<td>工程造价</td>
+<td>20</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>22</td>
+<td>新型建筑材料技术</td>
+<td>20</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>23</td>
+<td>应急救援技术</td>
+<td>50</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>24</td>
+<td>消防救援技术</td>
+<td>50</td>
+<td>4200</td>
+</tr>
+</table>
+</div>
+</main>
+ <!-- 页脚（复用原有样式） -->
+<footer>
+<div class="container footer-info">
+<p>单招咨询系统 河南铭书教育专用网站<br/>详细咨询：魏老师   17337690694</p>
+<p>新县地址:新县二高对面（铭书教育） <br/>信阳地址:河南铭书教育信阳分校（金色童年学校） <br/>息县地址:息县二高旁边（铭书教育） <br/>光山地址:光山汽车站进站口（铭书教育）</p>
+<p style="margin-top: 10px; font-size: 12px;">本系统仅提供咨询服务，最终政策以教育考试院公布为准</p>
+</div>
+</footer>
+<script>
+        function checkLogin() {
+            const isLoggedIn = localStorage.getItem('userLoginStatus') === 'true';
+            const currentPage = window.location.pathname.split('/').pop();
+            if (!isLoggedIn && currentPage !== '../index.html') {
+                window.location.href = '../index.html';
+                return false;
+            }
+            if (isLoggedIn && currentPage === '../index.html') {
+                window.location.href = '../shouye.html';
+                return false;
+            }
+            return true;
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!checkLogin()) return;
+            const currentPage = window.location.pathname.split('/').pop();
+            if (currentPage !== '../index.html') {
+                const userName = localStorage.getItem('userName');
+                if (userName) {
+                    const nav = document.querySelector('.nav');
+                    if (nav) {
+                        let userDiv = nav.querySelector('.user-info');
+                        if (!userDiv) {
+                            userDiv = document.createElement('div');
+                            userDiv.className = 'user-info';
+                            userDiv.innerHTML = `
+                                <span style="color: #2c5282; margin-right: 20px;">欢迎，${userName}</span>
+                                <a href="#" onclick="logout()" style="color: #ff6b6b;">退出</a>
+                            `;
+                            nav.appendChild(userDiv);
+                        }
+                    }
+                }
+            }
+        });
+        function logout() {
+            localStorage.removeItem('userLoginStatus');
+            localStorage.removeItem('userName');
+            window.location.href = '../index.html';
+        }
+    </script>
+</body>
+</html>

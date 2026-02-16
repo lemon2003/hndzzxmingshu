@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>河南轻工职业学院 - 铭书教育单招咨询</title>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c5282;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-menu li a {
+            font-size: 18px;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        .nav-menu li a:hover {
+            border-color: #2c5282;
+            color: #2c5282;
+        }
+        footer {
+            background-color: #2c5282;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .footer-info {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .watermark {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.55;
+            overflow: hidden;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='150'><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-size='2em' font-weight='bold' fill='%232c5282' fill-opacity='0.2' transform='rotate(-45 100 75)'>河南铭书教育</text></svg>");
+            background-size: 200px 150px;
+            background-position: 0 0;
+            background-repeat: repeat;
+        }
+        .school-title {
+            font-size: 28px;
+            color: #2c5282;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        .school-info table, .major-score-table table, .major-plan-table table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .school-info table td, .major-score-table table th, .major-score-table table td, .major-plan-table table th, .major-plan-table table td {
+            border: 1px solid #e5e7eb;
+            padding: 12px 15px;
+            font-size: 16px;
+            vertical-align: top;
+        }
+        .school-info table td:first-child, .major-score-table table th, .major-plan-table table th {
+            background-color: #f8fafc;
+            font-weight: 500;
+            text-align: center;
+        }
+        .major-score-table table td, .major-plan-table table td {
+            text-align: center;
+        }
+        .title-h2 {
+            font-size: 20px;
+            color: #2c5282;
+            margin: 30px 0 15px;
+            padding-left: 10px;
+            border-left: 4px solid #2c5282;
+        }
+        .title-h3 {
+            font-size: 18px;
+            color: #2c5282;
+            margin: 20px 0 10px;
+        }
+        .text-content {
+            font-size: 16px;
+            line-height: 1.8;
+            margin: 10px 0;
+        }
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .nav-menu {
+                gap: 15px;
+            }
+            .watermark {
+                background-size: 150px 100px;
+                opacity: 0.55;
+            }
+            .school-title {
+                font-size: 24px;
+            }
+            .school-info table td:first-child {
+                width: 120px;
+                font-size: 14px;
+            }
+            .school-info table td, .major-score-table table td, .major-score-table table th, .major-plan-table table td, .major-plan-table table th {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+            .title-h2 {
+                font-size: 18px;
+            }
+            .title-h3 {
+                font-size: 16px;
+            }
+            .text-content {
+                font-size: 14px;
+            }
+            .major-score-table table, .major-plan-table table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+        @media print {
+            .watermark {
+                opacity: 0.55;
+                background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='150'><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-size='2em' font-weight='bold' fill='%232c5282' fill-opacity='0.15' transform='rotate(-45 100 75)'>河南铭书教育</text></svg>");
+                background-size: 200px 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="watermark"></div>
+<header>
+<div class="container nav">
+<div class="logo">河南铭书教育单招咨询</div>
+<ul class="nav-menu">
+<li><a href="../shouye.html">首页</a></li>
+<li><a href="../yuanxiao.html">河南单招院校大全</a></li>
+<li><a href="../zhuanye.html">根据专业选院校</a></li>
+<li><a href="../chengji.html">根据成绩选院校</a></li>
+<li><a href="../us.html">关于我们</a></li>
+</ul>
+</div>
+</header>
+<main class="container">
+<h1 class="school-title">河南轻工职业学院</h1>
+<div class="school-info">
+<table>
+<tr>
+<td>学校类型</td>
+<td>综合公办（突出轻工行业特色）</td>
+</tr>
+<tr>
+<td>招生代码</td>
+<td>6184</td>
+</tr>
+<tr>
+<td>所在地</td>
+<td>河南省郑州市</td>
+</tr>
+<tr>
+<td>办学层次</td>
+<td>高职(专科)</td>
+</tr>
+<tr>
+<td>办学类型</td>
+<td>高等职业技术学校</td>
+</tr>
+<tr>
+<td>占地面积</td>
+<td>约700亩（含主校区、实训基地及产教融合园区，建筑面积25万平方米）</td>
+</tr>
+<tr>
+<td>院校隶属</td>
+<td>河南省教育厅主管，河南省轻工业行业协会共建（以教育厅管理为主）</td>
+</tr>
+<tr>
+<td>学校地址</td>
+<td>主校区：河南省郑州市金水区鑫苑路6号；分校区：河南省郑州市二七区嵩山南路426号</td>
+</tr>
+<tr>
+<td>成立时间</td>
+<td>2001 年</td>
+</tr>
+<tr>
+<td>特色专业</td>
+<td>国家级骨干专业：服装设计与工艺、艺术设计<br/>省级特色专业：食品生物技术、机电一体化技术、环境艺术设计、会计<br/>省级骨干专业：数字媒体艺术设计、电子商务、高分子材料加工技术<br/>校级重点专业：工业机器人技术、化妆品技术、现代物流管理、音乐表演<br/>新兴专业：智能纺织技术、非织造材料与工程</td>
+</tr>
+<tr>
+<td>宿舍环境</td>
+<td>八人间400元/生·年；标配：空调、暖气、独立书桌+书架、定制衣柜、独立阳台；部分宿舍带独立卫生间(新楼栋优先配置)；公共区域：每层设直饮水机，楼下配套共享洗衣房(含烘干机)、便利店、自动售货机，宿舍区实行门禁管理保障安全</td>
+</tr>
+</table>
+</div>
+<h2 class="title-h2">单招考核方式</h2>
+<div class="text-content">单招采取<strong>文化素质+职业技能/职业适应性测试</strong>评价方式，两部分测试各满分200分；有学业水平成绩的高中生免文化素质校考，退役士兵免文化素质考试，报考美术类专业的考生职业测试为素描并按省统考分67%计分。</div>
+<h3 class="title-h3">一、文化素质考试（满分200分）</h3>
+<div class="major-plan-table" style="margin-left:20px;">
+            1. <strong>有高中学业水平测试成绩的高中生</strong>：免文化知识综合测试，按语文、英语学业水平成绩赋分，总分200分：<br/>
+              ①2022级前（不含2022级）：A90分、B80分、C70分、D60分<br/>
+              ②2022级及以后：A90分、B80分、C70分、D65分、E60分<br/>
+            2. <strong>无学业水平成绩的高中生、社会考生、中职生</strong>：参加文化知识综合测试，笔试含语文、英语各100分，总分200分<br/>
+            3. <strong>退役士兵考生</strong>：经报名所在地县(市、区)招办认定后，免文化素质考试。
+        </div>
+<h3 class="title-h3">二、职业技能/职业适应性测试（满分200分）</h3>
+<div class="major-plan-table" style="margin-left:20px;">
+            1. <strong>普通高中生</strong>：参加职业适应性测试，笔试形式，考察专业素养、科学素质、职业潜能和职业倾向<br/>
+            2. <strong>中职生</strong>：参加职业技能测试，笔试形式，考察综合专业能力、岗位技能、通用技术等<br/>
+            3. <strong>美术类专业考生</strong>：第一志愿为美术类专业的所有考生，职业测试内容为素描，采用河南省专业统考分按67%计分<br/>
+            4. <strong>社会考生</strong>：根据所报考专业参加对应职业技能测试<br/>
+            5. <strong>退役士兵考生</strong>：参加职业适应性测试，考试形式与普通高中生一致。
+        </div>
+<h2 class="title-h2">单招各专业录取分数</h2>
+<div class="major-score-table">
+<table>
+<tr>
+<th>专业名称</th>
+<th>录取分数</th>
+<th>专业名称</th>
+<th>录取分数</th>
+<th>专业名称</th>
+<th>录取分数</th>
+</tr>
+<tr>
+<td>环境艺术设计</td>
+<td>264</td>
+<td>大数据技术</td>
+<td>265</td>
+<td>建筑装饰工程技术</td>
+<td>267</td>
+</tr>
+<tr>
+<td>现代物流管理</td>
+<td>266</td>
+<td>软件技术</td>
+<td>265</td>
+<td>酒店管理与数字化运营</td>
+<td>267</td>
+</tr>
+<tr>
+<td>电子商务</td>
+<td>271</td>
+<td>智能控制技术</td>
+<td>265</td>
+<td>食品药品监管管理</td>
+<td>277</td>
+</tr>
+<tr>
+<td>人力资源管理</td>
+<td>268</td>
+<td>智能制造装备技术</td>
+<td>266</td>
+<td>数字化设计与制造技术</td>
+<td>265</td>
+</tr>
+<tr>
+<td>皮具制作与工艺(时尚皮具)</td>
+<td>265</td>
+<td>计算机网络技术</td>
+<td>270</td>
+<td>网络直播与运营</td>
+<td>265</td>
+</tr>
+<tr>
+<td>高分子材料智能制造技术</td>
+<td>265</td>
+<td>旅游管理</td>
+<td>265</td>
+<td>无人机应用技术</td>
+<td>272</td>
+</tr>
+<tr>
+<td>融媒体技术与运营</td>
+<td>277</td>
+<td>酿酒技术</td>
+<td>265</td>
+<td>研学旅行管理与服务</td>
+<td>269</td>
+</tr>
+<tr>
+<td>文化创意与策划</td>
+<td>273</td>
+<td>陶瓷设计与工艺</td>
+<td>246</td>
+<td>民族美术</td>
+<td>247</td>
+</tr>
+<tr>
+<td>食品生物技术</td>
+<td>272</td>
+<td>大数据与财务管理</td>
+<td>281</td>
+<td>展示艺术设计</td>
+<td>244</td>
+</tr>
+<tr>
+<td>市场营销</td>
+<td>266</td>
+<td>公共艺术设计</td>
+<td>249</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>虚拟现实技术应用</td>
+<td>265</td>
+<td>机械制造及自动化</td>
+<td>284</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</table>
+</div>
+<h2 class="title-h2">2025年单招招生专业及计划</h2>
+<div class="major-plan-table">
+<table>
+<tr>
+<th>专业名称</th>
+<th>专业代码</th>
+<th>培养类型</th>
+<th>学制(年)</th>
+<th>招生人数</th>
+<th>所属学科门类</th>
+<th>学费(元/年)</th>
+</tr>
+<tr>
+<td>环境艺术设计</td>
+<td>550106</td>
+<td>全日制</td>
+<td>3</td>
+<td>30</td>
+<td>艺术类</td>
+<td>6000</td>
+</tr>
+<tr>
+<td>公共艺术设计</td>
+<td>550108</td>
+<td>全日制</td>
+<td>3</td>
+<td>10</td>
+<td>艺术类</td>
+<td>6000</td>
+</tr>
+<tr>
+<td>陶瓷设计与工艺</td>
+<td>550122</td>
+<td>全日制</td>
+<td>3</td>
+<td>10</td>
+<td>艺术类</td>
+<td>6000</td>
+</tr>
+<tr>
+<td>民族美术</td>
+<td>550302</td>
+<td>全日制</td>
+<td>3</td>
+<td>10</td>
+<td>艺术类</td>
+<td>6000</td>
+</tr>
+<tr>
+<td>文化创意与策划</td>
+<td>550401</td>
+<td>全日制</td>
+<td>3</td>
+<td>20</td>
+<td>文科类</td>
+<td>3700</td>
+</tr>
+<tr>
+<td>融媒体技术与运营</td>
+<td>560213</td>
+<td>全日制</td>
+<td>3</td>
+<td>20</td>
+<td>文科类</td>
+<td>3700</td>
+</tr>
+<tr>
+<td>虚拟现实技术应用</td>
+<td>510208</td>
+<td>全日制</td>
+<td>3</td>
+<td>20</td>
+<td>理工类</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>高分子材料智能制造技术</td>
+<td>430602</td>
+<td>全日制</td>
+<td>3</td>
+<td>30</td>
+<td>理工类</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>皮具制作与工艺(时尚皮具方向)</td>
+<td>480108</td>
+<td>全日制</td>
+<td>3</td>
+<td>30</td>
+<td>理工类</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>现代物流管理</td>
+<td>530802</td>
+<td>全日制</td>
+<td>3</td>
+<td>30</td>
+<td>文科类</td>
+<td>3700</td>
+</tr>
+<tr>
+<td>电子商务</td>
+<td>530701</td>
+<td>全日制</td>
+<td>3</td>
+<td>30</td>
+<td>文科类</td>
+<td>3700</td>
+</tr>
+<tr>
+<td>人力资源管理</td>
+<td>590202</td>
+<td>全日制</td>
+<td>3</td>
+<td>30</td>
+<td>文科类</td>
+<td>3700</td>
+</tr>
+<tr>
+<td>建筑装饰工程技术</td>
+<td>440102</td>
+<td>全日制</td>
+<td>3</td>
+<td>10</td>
+<td>理工类</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>数字化设计与制造技术</td>
+<td>460102</td>
+<td>全日制</td>
+<td>3</td>
+<td>10</td>
+<td>理工类</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>机械制造及自动化</td>
+<td>460104</td>
+<td>全日制</td>
+<td>3</td>
+<td>10</td>
+<td>理工类</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>智能制造装备技术</td>
+<td>460201</td>
+<td>全日制</td>
+<td>3</td>
+<td>15</td>
+<td>理工类</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>智能控制技术</td>
+<td>460303</td>
+<td>全日制</td>
+<td>3</td>
+<td>15</td>
+<td>理工类</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>食品生物技术</td>
+<td>470101</td>
+<td>全日制</td>
+<td>3</td>
+<td>20</td>
+<td>理工类</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>酿酒技术</td>
+<td>490105</td>
+<td>全日制</td>
+<td>3</td>
+<td>10</td>
+<td>理工类</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>食品药品监管管理</td>
+<td>490209</td>
+<td>全日制</td>
+<td>3</td>
+<td>10</td>
+<td>理工类</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>计算机网络技术</td>
+<td>510202</td>
+<td>全日制</td>
+<td>3</td>
+<td>10</td>
+<td>理工类</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>软件技术</td>
+<td>510203</td>
+<td>全日制</td>
+<td>3</td>
+<td>15</td>
+<td>理工类</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>大数据技术</td>
+<td>510205</td>
+<td>全日制</td>
+<td>3</td>
+<td>15</td>
+<td>理工类</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>大数据与财务管理</td>
+<td>530301</td>
+<td>全日制</td>
+<td>3</td>
+<td>10</td>
+<td>文科类</td>
+<td>3700</td>
+</tr>
+<tr>
+<td>无人机应用技术</td>
+<td>460609</td>
+<td>全日制</td>
+<td>3</td>
+<td>10</td>
+<td>理工类</td>
+<td>4200</td>
+</tr>
+<tr>
+<td>市场营销</td>
+<td>530605</td>
+<td>全日制</td>
+<td>3</td>
+<td>20</td>
+<td>文科类</td>
+<td>3700</td>
+</tr>
+<tr>
+<td>旅游管理</td>
+<td>540101</td>
+<td>全日制</td>
+<td>3</td>
+<td>10</td>
+<td>文科类</td>
+<td>3700</td>
+</tr>
+<tr>
+<td>研学旅行管理与服务</td>
+<td>540105</td>
+<td>全日制</td>
+<td>3</td>
+<td>10</td>
+<td>文科类</td>
+<td>3700</td>
+</tr>
+<tr>
+<td>酒店管理与数字化运营</td>
+<td>540106</td>
+<td>全日制</td>
+<td>3</td>
+<td>10</td>
+<td>文科类</td>
+<td>3700</td>
+</tr>
+<tr>
+<td>展示艺术设计</td>
+<td>550110</td>
+<td>全日制</td>
+<td>3</td>
+<td>10</td>
+<td>艺术类</td>
+<td>6000</td>
+</tr>
+<tr>
+<td>网络直播与运营</td>
+<td>560214</td>
+<td>全日制</td>
+<td>3</td>
+<td>10</td>
+<td>理工类</td>
+<td>4200</td>
+</tr>
+</table>
+</div>
+</main>
+ <!-- 页脚（复用原有样式） -->
+<footer>
+<div class="container footer-info">
+<p>单招咨询系统 河南铭书教育专用网站<br/>详细咨询：魏老师   17337690694</p>
+<p>新县地址:新县二高对面（铭书教育） <br/>信阳地址:河南铭书教育信阳分校（金色童年学校） <br/>息县地址:息县二高旁边（铭书教育） <br/>光山地址:光山汽车站进站口（铭书教育）</p>
+<p style="margin-top: 10px; font-size: 12px;">本系统仅提供咨询服务，最终政策以教育考试院公布为准</p>
+</div>
+</footer>
+<script>
+        function checkLogin() {
+            const isLoggedIn = localStorage.getItem('userLoginStatus') === 'true';
+            const currentPage = window.location.pathname.split('/').pop();
+            if (!isLoggedIn && currentPage !== '../index.html') {
+                window.location.href = '../index.html';
+                return false;
+            }
+            if (isLoggedIn && currentPage === '../index.html') {
+                window.location.href = '../shouye.html';
+                return false;
+            }
+            return true;
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!checkLogin()) return;
+            const currentPage = window.location.pathname.split('/').pop();
+            if (currentPage !== '../index.html') {
+                const userName = localStorage.getItem('userName');
+                if (userName) {
+                    const nav = document.querySelector('.nav');
+                    if (nav) {
+                        let userDiv = nav.querySelector('.user-info');
+                        if (!userDiv) {
+                            userDiv = document.createElement('div');
+                            userDiv.className = 'user-info';
+                            userDiv.innerHTML = `
+                                <span style="color: #2c5282; margin-right: 20px;">欢迎，${userName}</span>
+                                <a href="#" onclick="logout()" style="color: #ff6b6b;">退出</a>
+                            `;
+                            nav.appendChild(userDiv);
+                        }
+                    }
+                }
+            }
+        });
+        function logout() {
+            localStorage.removeItem('userLoginStatus');
+            localStorage.removeItem('userName');
+            window.location.href = '../index.html';
+        }
+    </script>
+</body>
+</html>

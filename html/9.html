@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>濮阳职业技术学院 - 铭书教育单招咨询</title>
+<style>
+        /* 全局基础样式+导航+页脚 - 复用common.css */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c5282;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-menu li a {
+            font-size: 18px;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+        .nav-menu li a:hover {
+            border-color: #2c5282;
+            color: #2c5282;
+        }
+        footer {
+            background-color: #2c5282;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .footer-info {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        /* 水印样式 - 复用shuiyin.css */
+        .watermark {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.55;
+            overflow: hidden;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='150'><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-size='2em' font-weight='bold' fill='%232c5282' fill-opacity='0.2' transform='rotate(-45 100 75)'>河南铭书教育</text></svg>");
+            background-size: 200px 150px;
+            background-position: 0 0;
+            background-repeat: repeat;
+        }
+        /* 页面专属样式 - 适配院校信息展示 */
+        .school-title {
+            font-size: 28px;
+            color: #2c5282;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        .school-info table, .major-table table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .school-info table td, .major-table table th, .major-table table td {
+            border: 1px solid #e5e7eb;
+            padding: 12px 15px;
+            font-size: 16px;
+            vertical-align: top;
+        }
+        .school-info table td:first-child, .major-table table th {
+            background-color: #f8fafc;
+            font-weight: 500;
+            width: 200px;
+        }
+        .major-table table th {
+            width: auto;
+            text-align: center;
+        }
+        .title-h2 {
+            font-size: 20px;
+            color: #2c5282;
+            margin: 30px 0 15px;
+            padding-left: 10px;
+            border-left: 4px solid #2c5282;
+        }
+        .title-h3 {
+            font-size: 18px;
+            color: #2c5282;
+            margin: 20px 0 10px;
+        }
+        .text-content {
+            font-size: 16px;
+            line-height: 1.8;
+            margin: 10px 0;
+        }
+        .score-item {
+            margin: 8px 0;
+            font-size: 16px;
+            line-height: 1.8;
+            padding-left: 10px;
+            font-weight: 500;
+        }
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .nav-menu {
+                gap: 15px;
+            }
+            .watermark {
+                background-size: 150px 100px;
+                opacity: 0.55;
+            }
+            .school-title {
+                font-size: 24px;
+            }
+            .school-info table td:first-child {
+                width: 120px;
+                font-size: 14px;
+            }
+            .school-info table td, .major-table table td, .major-table table th {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+            .title-h2 {
+                font-size: 18px;
+            }
+            .title-h3 {
+                font-size: 16px;
+            }
+            .score-item, .text-content {
+                font-size: 14px;
+            }
+        }
+        @media print {
+            .watermark {
+                opacity: 0.55;
+                background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='150'><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-size='2em' font-weight='bold' fill='%232c5282' fill-opacity='0.15' transform='rotate(-45 100 75)'>河南铭书教育</text></svg>");
+                background-size: 200px 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- 水印 -->
+<div class="watermark"></div>
+<!-- 头部导航 -->
+<header>
+<div class="container nav">
+<div class="logo">河南铭书教育单招咨询</div>
+<ul class="nav-menu">
+<li><a href="../shouye.html">首页</a></li>
+<li><a href="../yuanxiao.html">河南单招院校大全</a></li>
+<li><a href="../zhuanye.html">根据专业选院校</a></li>
+<li><a href="../chengji.html">根据成绩选院校</a></li>
+<li><a href="../us.html">关于我们</a></li>
+</ul>
+</div>
+</header>
+<!-- 主体内容 -->
+<main class="container">
+<h1 class="school-title">濮阳职业技术学院</h1>
+<!-- 学校基础信息 -->
+<div class="school-info">
+<table>
+<tr>
+<td>学校类型</td>
+<td>工科公办</td>
+</tr>
+<tr>
+<td>所在地</td>
+<td>河南省濮阳市</td>
+</tr>
+<tr>
+<td>招生代码</td>
+<td>6272</td>
+</tr>
+<tr>
+<td>办学层次</td>
+<td>高职(专科)</td>
+</tr>
+<tr>
+<td>办学类型</td>
+<td>高等职业技术学校</td>
+</tr>
+<tr>
+<td>占地面积</td>
+<td>约1162 亩</td>
+</tr>
+<tr>
+<td>院校隶属</td>
+<td>河南省教育厅</td>
+</tr>
+<tr>
+<td>学校地址</td>
+<td>河南省濮阳市华龙区黄河西路249 号（主校区）</td>
+</tr>
+<tr>
+<td>成立时间</td>
+<td>1950 年</td>
+</tr>
+<tr>
+<td>特色专业</td>
+<td>国家级骨干专业：石油工程技术、应用化工技术<br/>省级特色专业：建筑工程技术、会计电算化、计算机应用技术、机电一体化技术、学前教育<br/>省级综合改革试点专业：物流管理、汽车检测与维修技术</td>
+</tr>
+<tr>
+<td>宿舍环境</td>
+<td>多数为4-6人间（少量8人间，近年逐步改造）；标配空调、暖气、书桌、衣柜、独立阳台；部分宿舍带独立卫生间；公共区域设洗衣房、直饮水设备<br/>收费标准：6人间700元/生·年，4人间800元/生·年</td>
+</tr>
+</table>
+</div>
+<!-- 单招考核方式 -->
+<h2 class="title-h2">单招考核方式</h2>
+<div class="text-content">考核总分合计<strong>300分</strong>，由文化素质考试（150分）+职业技能/职业适应性测试（150分）两部分构成。</div>
+<h3 class="title-h3">一、文化素质考试</h3>
+<div class="text-content">
+            命题方式：学校自主命题<br/>
+            考试科目及分值：语文80分、数学50分、英语20分，总分150分<br/>
+            考核方式：笔试
+        </div>
+<h3 class="title-h3">二、职业技能/职业适应性测试（满分150分）</h3>
+<div class="text-content">
+<strong>1. 中职类考生（对口升学报名）</strong>：以《中等职业教育专业教学标准》为依据，重点考核综合专业能力、岗位技能等，考核方式为实操或笔试<br/>
+<strong>2. 普通高中毕业生（普通高考报名）</strong>：职业适应性测试，重点考核专业素养、职业潜能、职业倾向等，考核方式为笔试<br/>
+<strong>3. 退役军人</strong>：申请免文化素质考试者需参加，考核方式为实操或笔试<br/>
+<strong>4. 艺术类专业考生</strong>：专业技能测试，考核方式为实操或笔试（如音乐、舞蹈等艺术技能展示）
+        </div>
+<!-- 单招录取成绩 -->
+<h2 class="title-h2">单招拟录取分数线</h2>
+<div class="score-item">普通类专业：153.5分（职业技能73.5分、文化素质80分、语文33分、数学41分）</div>
+<div class="score-item">艺术类专业：音乐表演181分；舞蹈表演175.33分；环境艺术设计179分</div>
+<div class="score-item">社会体育专业：188.2分</div>
+<div class="text-content" style="margin-top:10px;">注：录取过程中总分相同的考生，按<strong>职业技能、文化素质、语文、数学、外语</strong>成绩从高到低依次录取。</div>
+<!-- 学费标准 -->
+<h2 class="title-h2">学费收费标准</h2>
+<div class="text-content">
+<strong>文史类专业</strong>：大数据与会计4000元/生·年，其余专业3700元/生·年<br/>
+<strong>理工类专业</strong>：大数据技术4600元/生·年，其余专业4200元/生·年<br/>
+<strong>艺术类/体育类专业</strong>：艺术类6000元/生·年，社会体育（体育类）3700元/生·年
+        </div>
+<!-- 单招专业计划表 -->
+<h2 class="title-h2">2025年单招分专业计划表</h2>
+<div class="major-table">
+<table>
+<tr>
+<th>学院</th>
+<th>招生专业</th>
+<th>单招计划</th>
+<th>学制</th>
+<th>学费标准(元/年)</th>
+<th>备注</th>
+</tr>
+<tr>
+<td>人文学院</td>
+<td>现代文秘</td>
+<td>100</td>
+<td>3</td>
+<td>3700</td>
+<td>-</td>
+</tr>
+<tr>
+<td rowspan="4">外语与旅游学院</td>
+<td>商务英语</td>
+<td>10</td>
+<td>3</td>
+<td>3700</td>
+<td>-</td>
+</tr>
+<tr>
+<td>应用英语</td>
+<td>20</td>
+<td>3</td>
+<td>3700</td>
+<td>-</td>
+</tr>
+<tr>
+<td>旅游管理</td>
+<td>30</td>
+<td>3</td>
+<td>3700</td>
+<td>-</td>
+</tr>
+<tr>
+<td>高速铁路客运服务</td>
+<td>30</td>
+<td>3</td>
+<td>3700</td>
+<td>-</td>
+</tr>
+<tr>
+<td rowspan="7">数学与信息工程学院</td>
+<td>移动应用开发</td>
+<td>10</td>
+<td>3</td>
+<td>4200</td>
+<td>-</td>
+</tr>
+<tr>
+<td>计算机网络技术</td>
+<td>15</td>
+<td>3</td>
+<td>4200</td>
+<td>河南省综合改革试点专业</td>
+</tr>
+<tr>
+<td>信息安全技术应用</td>
+<td>10</td>
+<td>3</td>
+<td>4200</td>
+<td>-</td>
+</tr>
+<tr>
+<td>数字媒体技术</td>
+<td>10</td>
+<td>3</td>
+<td>4200</td>
+<td>-</td>
+</tr>
+<tr>
+<td>大数据技术</td>
+<td>15</td>
+<td>3</td>
+<td>4600</td>
+<td>河南省职业教育示范性专业点</td>
+</tr>
+<tr>
+<td>人工智能技术应用</td>
+<td>10</td>
+<td>3</td>
+<td>4200</td>
+<td>-</td>
+</tr>
+<tr>
+<td>虚拟现实技术应用</td>
+<td>10</td>
+<td>3</td>
+<td>4200</td>
+<td>-</td>
+</tr>
+<tr>
+<td rowspan="4">教育科学学院、生物与食品工程学院</td>
+<td>人力资源管理</td>
+<td>100</td>
+<td>3</td>
+<td>3700</td>
+<td>-</td>
+</tr>
+<tr>
+<td>婴幼儿托育服务与管理</td>
+<td>50</td>
+<td>3</td>
+<td>3700</td>
+<td>-</td>
+</tr>
+<tr>
+<td>智慧健康养老服务与管理</td>
+<td>20</td>
+<td>3</td>
+<td>3700</td>
+<td>-</td>
+</tr>
+<tr>
+<td>现代家政服务与管理</td>
+<td>100</td>
+<td>3</td>
+<td>3700</td>
+<td>河南省高水平专业群</td>
+</tr>
+<tr>
+<td rowspan="5">能源与化学工程学院</td>
+<td>应用化工技术</td>
+<td>80</td>
+<td>3</td>
+<td>4200</td>
+<td>河南省高水平专业群；河南省创新发展行动计划骨干专业；河南省特色专业；河南省职业教育示范性专业点</td>
+</tr>
+<tr>
+<td>环境工程技术</td>
+<td>50</td>
+<td>3</td>
+<td>4200</td>
+<td>河南省高水平专业群</td>
+</tr>
+<tr>
+<td>石油工程技术</td>
+<td>50</td>
+<td>3</td>
+<td>4200</td>
+<td>中央财政支持建设专业；河南省高水平专业群</td>
+</tr>
+<tr>
+<td>材料工程技术</td>
+<td>80</td>
+<td>3</td>
+<td>4200</td>
+<td>-</td>
+</tr>
+<tr>
+<td>应急救援技术</td>
+<td>30</td>
+<td>3</td>
+<td>4200</td>
+<td>-</td>
+</tr>
+<tr>
+<td rowspan="2">机电与汽车工程学院</td>
+<td>工业机器人技术</td>
+<td>10</td>
+<td>3</td>
+<td>4200</td>
+<td>-</td>
+</tr>
+<tr>
+<td>智能网联汽车技术</td>
+<td>10</td>
+<td>3</td>
+<td>4200</td>
+<td>-</td>
+</tr>
+<tr>
+<td rowspan="6">建筑工程学院、经济管理学院</td>
+<td>建筑工程技术</td>
+<td>20</td>
+<td>3</td>
+<td>4200</td>
+<td>中央财政支持建设专业；河南省创新发展行动计划骨干专业；河南省特色专业；河南省职业教育示范性专业点</td>
+</tr>
+<tr>
+<td>工程造价</td>
+<td>50</td>
+<td>3</td>
+<td>4200</td>
+<td>河南省特色专业</td>
+</tr>
+<tr>
+<td>建筑装饰工程技术</td>
+<td>10</td>
+<td>3</td>
+<td>4200</td>
+<td>-</td>
+</tr>
+<tr>
+<td>工程测量技术</td>
+<td>20</td>
+<td>3</td>
+<td>4200</td>
+<td>河南省现代学徒制示范点</td>
+</tr>
+<tr>
+<td>建筑智能化工程技术</td>
+<td>40</td>
+<td>3</td>
+<td>4200</td>
+<td>-</td>
+</tr>
+<tr>
+<td>大数据与会计</td>
+<td>50</td>
+<td>3</td>
+<td>4000</td>
+<td>河南省创新发展行动计划骨干专业；河南省特色专业</td>
+</tr>
+<tr>
+<td rowspan="3">经济管理学院</td>
+<td>市场营销</td>
+<td>30</td>
+<td>3</td>
+<td>3700</td>
+<td>-</td>
+</tr>
+<tr>
+<td>电子商务</td>
+<td>20</td>
+<td>3</td>
+<td>3700</td>
+<td>-</td>
+</tr>
+<tr>
+<td>现代物流管理</td>
+<td>20</td>
+<td>3</td>
+<td>3700</td>
+<td>河南省综合改革试点专业</td>
+</tr>
+<tr>
+<td>体育健康学院</td>
+<td>社会体育</td>
+<td>15</td>
+<td>3</td>
+<td>3700</td>
+<td>体育类</td>
+</tr>
+<tr>
+<td rowspan="3">艺术学院</td>
+<td>音乐表演</td>
+<td>20</td>
+<td>3</td>
+<td>6000</td>
+<td>艺术类</td>
+</tr>
+<tr>
+<td>舞蹈表演</td>
+<td>20</td>
+<td>3</td>
+<td>6000</td>
+<td>艺术类</td>
+</tr>
+<tr>
+<td>环境艺术设计</td>
+<td>35</td>
+<td>3</td>
+<td>6000</td>
+<td>艺术类</td>
+</tr>
+</table>
+</div>
+</main>
+<!-- 页脚 -->
+ <!-- 页脚（复用原有样式） -->
+<footer>
+<div class="container footer-info">
+<p>单招咨询系统 河南铭书教育专用网站<br/>详细咨询：魏老师   17337690694</p>
+<p>新县地址:新县二高对面（铭书教育） <br/>信阳地址:河南铭书教育信阳分校（金色童年学校） <br/>息县地址:息县二高旁边（铭书教育） <br/>光山地址:光山汽车站进站口（铭书教育）</p>
+<p style="margin-top: 10px; font-size: 12px;">本系统仅提供咨询服务，最终政策以教育考试院公布为准</p>
+</div>
+</footer>
+<!-- 登录状态检查脚本 -->
+<script>
+        // 登录状态检查
+        function checkLogin() {
+            const isLoggedIn = localStorage.getItem('userLoginStatus') === 'true';
+            const currentPage = window.location.pathname.split('/').pop();
+            if (!isLoggedIn && currentPage !== '../index.html') {
+                window.location.href = '../index.html';
+                return false;
+            }
+            if (isLoggedIn && currentPage === '../index.html') {
+                window.location.href = '../shouye.html';
+                return false;
+            }
+            return true;
+        }
+        // 页面加载时检查
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!checkLogin()) return;
+            const currentPage = window.location.pathname.split('/').pop();
+            if (currentPage !== '../index.html') {
+                const userName = localStorage.getItem('userName');
+                if (userName) {
+                    const nav = document.querySelector('.nav');
+                    if (nav) {
+                        let userDiv = nav.querySelector('.user-info');
+                        if (!userDiv) {
+                            userDiv = document.createElement('div');
+                            userDiv.className = 'user-info';
+                            userDiv.innerHTML = `
+                                <span style="color: #2c5282; margin-right: 20px;">欢迎，${userName}</span>
+                                <a href="#" onclick="logout()" style="color: #ff6b6b;">退出</a>
+                            `;
+                            nav.appendChild(userDiv);
+                        }
+                    }
+                }
+            }
+        });
+        // 退出登录
+        function logout() {
+            localStorage.removeItem('userLoginStatus');
+            localStorage.removeItem('userName');
+            window.location.href = '../index.html';
+        }
+    </script>
+</body>
+</html>
